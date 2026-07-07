@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safar Travel — Kunlik pul oqimi</title>
 <meta property="og:title" content="Safar Travel — Kunlik pul oqimi">
-<meta property="og:description" content="5-iyul: jami pul $95 057 · sof o'zgarish +$42 073 · kirim +$50 338 · chiqim −$8 266. Kunlik kirim-chiqim, kassa qoldiqlari va trend — ochib ko'rish uchun bosing.">
+<meta property="og:description" content="6-iyul: jami pul $292 527 · sof o'zgarish +$63 125 · kirim +$75 585 · chiqim −$12 091. Kunlik kirim-chiqim, kassa qoldiqlari va trend — ochib ko'rish uchun bosing.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B3D33">
 <meta name="twitter:card" content="summary">
@@ -60,6 +60,11 @@
   .hero .mini span{display:block;font-size:11.5px;color:var(--muted);margin-bottom:2px}
   .hero .mini b{font-size:16px;font-weight:700}
   .hero .quiet{margin-top:14px;font-size:13px;color:var(--muted)}
+  .hero .why{margin-top:12px;font-size:13.5px;color:var(--ink2);line-height:1.55}
+  .hero .mini .split{font-size:10.5px;color:var(--muted);margin-top:3px;font-weight:400}
+  .hero .ctx{margin-top:12px;font-size:12px;color:var(--muted)}
+  .hero .ctx b{font-weight:700}
+  .idot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:0}
   @media(max-width:560px){.hero .big{font-size:29px}.hero .mini b{font-size:14.5px}}
 
   /* ---------- kartalar ---------- */
@@ -238,6 +243,7 @@ const CATS = {
   bank:      { label: "Bank xizmatlari",      color: "#8A948E" },
   marketing: { label: "Reklama va marketing", color: "#C77D2E" },
   subscription: { label: "Abonent to'lovi",  color: "#B08968" },
+  podotchet: { label: "Xodimga avans (hisobdorlik)", color: "#8E7CC3" },
   office:    { label: "Ofis xarajatlari",     color: "#7F8FA6" },
   other:     { label: "Boshqa xarajatlar",    color: "#9B9B93" },
   estimated: { label: "Hisoblangan (hujjat aniqlanmagan)", color: "#A9A9A0" }
@@ -390,14 +396,14 @@ const DAYS = [
     balances: {
       UZS: [
         ["Asosiy kassa UZS", 56990000],
-        ["IPAK UZCARD (Xayrulloh)", 21261937],
+        ["IPAK UZCARD (Xayrulloh)", 22440920],
         ["Trastbank h/r (…893002)", 19047624.39],
         ["Oyliklar uchun bank", 2496565],
         ["Kassa farq", 15000]
       ],
       USD: [
         ["Asosiy kassa $", 71570],
-        ["5055 Xayrulloh O'tkurov VISA Kapital", 1501.15],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 2401.15],
         ["Korrektirovka USD", 873.48],
         ["2339 (Boronov Shoxruz) Mastercard Ipak", 537.01],
         ["0117 Xayrulloh O'tkurov VISA", 3695.05],
@@ -406,7 +412,7 @@ const DAYS = [
       ],
       SAR: [
         ["Madina Abdurashid SAR", 11828.73],
-        ["Helaby Makka", 5275],
+        ["Helaby Makka", 505275],
         ["Catering SAR", 15000]
       ]
     },
@@ -416,23 +422,92 @@ const DAYS = [
         { doc:"SFRT-005567", dir:"in", cat:"customer", who:"Ataev Saidbek",              acc:"", cur:"USD", amt:4120 },
         { doc:"SFRT-005568", dir:"in", cat:"customer", who:"Yernazarov Ayarbek",         acc:"", cur:"UZS", amt:1000000 },
         { doc:"SFRT-005569", dir:"in", cat:"credit",   who:"Islom aka (kreditor)",       acc:"", cur:"USD", amt:42765 },
+        { doc:"SFRT-005592", dir:"in", cat:"credit",   who:"DMC GOLDEN ROWA (kreditor)", acc:"Helaby Makka", cur:"SAR", amt:500000 },
         { doc:"SFRT-005570", dir:"in", cat:"customer", who:"Alimov Utkurjon",            acc:"", cur:"UZS", amt:6000000 },
         { doc:"SFRT-005571", dir:"in", cat:"customer", who:"Rashidov Muxammadjon",       acc:"", cur:"UZS", amt:11790000 },
-        { doc:"DDS", dir:"out", cat:"marketing", who:"Reklama va marketing",           acc:"5055 VISA Kapital", cur:"USD", amt:900 },
-        { doc:"DDS", dir:"out", cat:"credit",    who:"Kredit/zayom qaytarilishi",      acc:"Asosiy kassa $",   cur:"USD", amt:7000 },
-        { doc:"DDS", dir:"out", cat:"salary",    who:"Ish haqi (Korrektirovka USD)",   acc:"Korrektirovka USD", cur:"USD", amt:84 },
-        { doc:"DDS", dir:"out", cat:"salary",    who:"Ish haqi",                       acc:"Asosiy kassa UZS", cur:"UZS", amt:2085000 },
-        { doc:"DDS", dir:"out", cat:"other",     who:"Ajva shokolad",                  acc:"IPAK UZCARD",      cur:"UZS", amt:1170000 },
-        { doc:"DDS", dir:"out", cat:"bank",      who:"Bank xizmati",                   acc:"IPAK UZCARD",      cur:"UZS", amt:16633 },
-        { doc:"DDS", dir:"out", cat:"office",    who:"Ofis xarajatlari",               acc:"IPAK UZCARD",      cur:"UZS", amt:145000 }
+        { doc:"SFRT-004945", dir:"out", cat:"credit",    who:"Alisher aka (CEO) — qarz qaytarildi", acc:"Asosiy kassa $", cur:"USD", amt:7000 },
+        { doc:"SFRT-004946", dir:"out", cat:"salary",    who:"Sulaymonova Barno",         acc:"Asosiy kassa UZS", cur:"UZS", amt:1000000 },
+        { doc:"SFRT-004947", dir:"out", cat:"salary",    who:"Rajabova Yoqutxon",         acc:"Asosiy kassa UZS", cur:"UZS", amt:1040000 },
+        { doc:"SFRT-004951", dir:"out", cat:"salary",    who:"Abdulaziz Solijonov",       acc:"Asosiy kassa UZS", cur:"UZS", amt:45000 },
+        { doc:"SFRT-004949", dir:"out", cat:"salary",    who:"Muhammadiy",                acc:"Korrektirovka USD", cur:"USD", amt:84 },
+        { doc:"SFRT-004948", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:145000 },
+        { doc:"SFRT-004950", dir:"out", cat:"bank",      who:"Bank komissiyasi",          acc:"IPAK UZCARD", cur:"UZS", amt:7650 }
       ],
       transfers: [
-        { doc:"DDS", desc:"Kassalar/hisoblar orasidagi ichki o'tkazma (USD tomon, kirim ko'rinishida)", cur:"USD", amt:114 },
-        { doc:"DDS", desc:"Kassalar/hisoblar orasidagi ichki o'tkazma (UZS tomon, chiqim ko'rinishida)", cur:"UZS", amt:1360000 }
+        { doc:"DDS", desc:"Asosiy kassa ichki o'tkazma", cur:"UZS", amt:360000 },
+        { doc:"DDS", desc:"IPAK UZCARD dan ichki o'tkazma", cur:"UZS", amt:1000000 }
       ],
       notes: [
-        { level:"warn", text:"SFRT-005564, 005565, 005566 (Buriyev Abror, 3x 16,758,000 so'm) — 1C da alohida belgi bilan ko'rsatilgan (ehtimol takroriy/o'tkazilmagan), summalarga kiritilmadi." },
-        { level:"info", text:"Chiqim endi 5-iyul DDS (Движение денежных средств) hisobotidan olindi — aniq, tasdiqlangan." }
+        { level:"warn", text:"SFRT-005564, 005565, 005566 (Buriyev Abror, 3x 16,758,000 so'm) — 1C da o'tkazilmagan/o'chirilgan, summalarga kiritilmadi." },
+        { level:"info", text:"1C da hujjatlar qayta sanalangan: Ajva shokolad (1,17 mln), marketing ($900) va bank komissiyasining bir qismi 6-iyulga ko'chirilgan." }
+      ]
+    }
+  },
+  {
+    date: "2026-07-06",
+    balances: {
+      UZS: [
+        ["Asosiy kassa UZS", 17531000],
+        ["IPAK UZCARD (Xayrulloh)", 45437700],
+        ["Trastbank h/r (…893002)", 415047624.39],
+        ["Oyliklar uchun bank", 2496565],
+        ["Kassa farq", 15000]
+      ],
+      USD: [
+        ["Asosiy kassa $", 105676],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 1501.15],
+        ["Korrektirovka USD", 873.48],
+        ["2339 (Boronov Shoxruz) Mastercard Ipak", 537.01],
+        ["0117 Xayrulloh O'tkurov VISA", 2247.28],
+        ["6490 Mirusmon Shavkatov", 55],
+        ["4211 Shoxruz Bo'ronov (Kapital) VISA", 15.04]
+      ],
+      SAR: [
+        ["Madina Abdurashid SAR", 11828.73],
+        ["Helaby Makka", 505275],
+        ["Catering SAR", 15000]
+      ]
+    },
+    flows: {
+      transactions: [
+        { doc:"SFRT-005589", dir:"in", cat:"credit",   who:"Islom aka (kreditor)",     acc:"Asosiy kassa $", cur:"USD", amt:60000 },
+        { doc:"3 hujjat",    dir:"in", cat:"customer", who:"Raxmatov Samir",           acc:"IPAK UZCARD", cur:"UZS", amt:17401000 },
+        { doc:"SFRT-005588", dir:"in", cat:"customer", who:"Agzamov Doniyor",          acc:"IPAK UZCARD", cur:"UZS", amt:11790900 },
+        { doc:"SFRT-005593", dir:"in", cat:"customer", who:"Sadikov Zoir",             acc:"", cur:"USD", amt:7000 },
+        { doc:"SFRT-005596", dir:"in", cat:"customer", who:"Saidakramov Muxammadvali", acc:"", cur:"USD", amt:2400 },
+        { doc:"2 hujjat",    dir:"in", cat:"customer", who:"Xursandbekov Aziz",        acc:"", cur:"USD", amt:1290 },
+        { doc:"SFRT-005575", dir:"in", cat:"customer", who:"Tokhirov Abdullokh",       acc:"", cur:"USD", amt:1100 },
+        { doc:"SFRT-005576", dir:"in", cat:"customer", who:"Biran Madina",             acc:"", cur:"USD", amt:1000 },
+        { doc:"SFRT-005587", dir:"in", cat:"customer", who:"Agzamov Doniyor",          acc:"", cur:"USD", amt:200 },
+        { doc:"SFRT-005578", dir:"in", cat:"customer", who:"Jiyanova Robiya",          acc:"", cur:"USD", amt:100 },
+        { doc:"SFRT-005583", dir:"in", cat:"customer", who:"Qalandarova Hayitgul",     acc:"Asosiy kassa UZS", cur:"UZS", amt:1000000 },
+        { doc:"SFRT-004965", dir:"out", cat:"supplier",  who:"Baxtiyor aka Nimcha",     acc:"Asosiy kassa UZS", cur:"UZS", amt:30000000 },
+        { doc:"SFRT-004966", dir:"out", cat:"supplier",  who:"Javohir",                 acc:"Asosiy kassa UZS", cur:"UZS", amt:7500000 },
+        { doc:"SFRT-004956", dir:"out", cat:"supplier",  who:"Ko'cha taom",             acc:"Asosiy kassa UZS", cur:"UZS", amt:145000 },
+        { doc:"SFRT-004958", dir:"out", cat:"supplier",  who:"Fly Khiva Turoperator",   acc:"Asosiy kassa $", cur:"USD", amt:2084 },
+        { doc:"SFRT-004961", dir:"out", cat:"supplier",  who:"Haramain Train (onlayn xizmat)", acc:"0117 VISA", cur:"USD", amt:725.37 },
+        { doc:"SFRT-004959", dir:"out", cat:"refund",    who:"Samatov Mirakil",         acc:"Asosiy kassa $", cur:"USD", amt:2800 },
+        { doc:"SFRT-004963", dir:"out", cat:"salary",    who:"Mohinur Shukurova",       acc:"Asosiy kassa UZS", cur:"UZS", amt:6674000 },
+        { doc:"SFRT-004973", dir:"out", cat:"salary",    who:"Maxkamxon",               acc:"Asosiy kassa UZS", cur:"UZS", amt:2920000 },
+        { doc:"SFRT-004970", dir:"out", cat:"salary",    who:"Mirbositova Ominaxon",    acc:"IPAK UZCARD", cur:"UZS", amt:3120000 },
+        { doc:"SFRT-004964", dir:"out", cat:"salary",    who:"Azizaxon Azimboyeva",     acc:"Asosiy kassa UZS", cur:"UZS", amt:2000000 },
+        { doc:"SFRT-004968", dir:"out", cat:"salary",    who:"Axmadjonov Imron",        acc:"Asosiy kassa UZS", cur:"UZS", amt:1170000 },
+        { doc:"SFRT-004969", dir:"out", cat:"salary",    who:"Muhlisa Matqurbonova",    acc:"Asosiy kassa UZS", cur:"UZS", amt:1150000 },
+        { doc:"SFRT-004967", dir:"out", cat:"salary",    who:"Axmadjonov Imron",        acc:"Asosiy kassa $", cur:"USD", amt:869 },
+        { doc:"SFRT-004971", dir:"out", cat:"salary",    who:"Shahzoda Ismatova",       acc:"IPAK UZCARD", cur:"UZS", amt:400000 },
+        { doc:"DDS",         dir:"out", cat:"other",     who:"Ajva shokolad",           acc:"IPAK UZCARD", cur:"UZS", amt:1170000 },
+        { doc:"SFRT-004952", dir:"out", cat:"marketing", who:"Reklama va marketing",    acc:"5055 VISA Kapital", cur:"USD", amt:900 },
+        { doc:"SFRT-004962", dir:"out", cat:"office",    who:"Ofis xarajatlari",        acc:"IPAK UZCARD", cur:"UZS", amt:475000 },
+        { doc:"SFRT-004972", dir:"out", cat:"bank",      who:"Bank komissiyasi",        acc:"IPAK UZCARD", cur:"UZS", amt:30120 },
+        { doc:"SFRT-004960", dir:"out", cat:"subscription", who:"Abonent to'lovi",      acc:"0117 VISA", cur:"USD", amt:22.40 }
+      ],
+      transfers: [
+        { doc:"SFRT-004957", desc:"Naqd pul bankka topshirildi: Asosiy kassa → Trastbank h/r", cur:"UZS", amt:396000000 },
+        { doc:"DDS", desc:"Valyuta konversiyasi: ≈$35,000 → 419,86 mln so'm (ichki kurs ≈11,996)", cur:"USD", amt:35000 }
+      ],
+      notes: [
+        { level:"warn", text:"6-iyulda ~128 mln so'mlik mijoz to'lov hujjatlari 1C da o'tkazilmagan (kassaga tushmagan): Diyorjon Abdumutalov 56,4 mln; Tokhirov Abdullokh 40,5 mln (3 hujjat); Xolmatov Raximjon 11,85 mln; Qalandarova 11,79 mln (2 hujjat); Ismonov 5 mln (o'chirilgan) va b." },
+        { level:"info", text:"SFRT-004953/004954 (Hayrulloh O'tkurov avanslari, 670,000+500,000) DDS hisobotida aks etmagan — holati aniqlashtirilmoqda." }
       ]
     }
   }
@@ -492,12 +567,19 @@ function flowsSummary(day){
   const f = day.flows;
   if(!f) return null;
   let inTotal = 0, outTotal = 0, inN = 0, outN = 0;
+  let inCustomer = 0, inCredit = 0, creditTop = null;
   const inRows = [], outByCat = {};
   f.transactions.forEach(t=>{
     const e = ekv(t.amt, t.cur);
     if(t.dir === "in"){
       inTotal += e; inN++;
-      inRows.push({ who:t.who, cur:t.cur, amt:t.amt, ekv:e });
+      if(t.cat === "credit"){
+        inCredit += e;
+        if(!creditTop || e > creditTop.ekv) creditTop = { who:t.who, ekv:e };
+      } else if(t.cat === "customer"){
+        inCustomer += e;
+      }
+      inRows.push({ who:t.who, cur:t.cur, amt:t.amt, ekv:e, cat:t.cat });
     } else {
       outTotal += e; outN++;
       if(!outByCat[t.cat]) outByCat[t.cat] = { ekv:0, rows:[] };
@@ -510,7 +592,53 @@ function flowsSummary(day){
     .map(([c,o])=>({ cat:c, ekv:o.ekv, rows:o.rows.sort((a,b)=>b.ekv-a.ekv) }))
     .sort((a,b)=>b.ekv-a.ekv);
   return { inTotal:inTotal, outTotal:outTotal, net:inTotal-outTotal,
-           inN:inN, outN:outN, inRows:inRows, cats:cats };
+           inN:inN, outN:outN, inRows:inRows, cats:cats,
+           inCustomer:inCustomer, inCredit:inCredit,
+           creditWho: creditTop ? creditTop.who.replace(/\s*\(kreditor\)\s*/,"") : null };
+}
+
+/* "Nega" — kun yakunini bitta gapda tushuntirish */
+function whySentence(fs, realNet){
+  if(!fs) return "";
+  const netTxt = (realNet >= 0 ? "+" : "−") + fmtUSD(Math.abs(realNet));
+  const verb = realNet >= 0 ? "o'sdi" : "kamaydi";
+  const creditShare = fs.inTotal ? fs.inCredit / fs.inTotal : 0;
+  let s;
+  if(fs.inCredit > 0 && creditShare >= 0.4){
+    s = "Pul " + netTxt + " " + verb + ", lekin kirimning " + Math.round(creditShare*100) + "% i qarz" +
+        (fs.creditWho ? " (" + fs.creditWho + ")" : "") + " — sotuvdan " + fmtUSD(fs.inCustomer) + " tushdi";
+  } else if(realNet >= 0){
+    s = "Pul " + netTxt + " o'sdi — sotuvdan " + fmtUSD(fs.inCustomer) + " tushdi";
+  } else {
+    s = "Pul " + netTxt + " kamaydi";
+  }
+  if(fs.outTotal > 0 && fs.cats.length){
+    const c0 = fs.cats[0];
+    const r0 = c0.rows[0];
+    if(r0 && r0.ekv >= fs.outTotal * 0.35){
+      s += ". Eng katta chiqim — " + r0.who + ": " + fmtUSD(r0.ekv);
+    } else {
+      s += ". Chiqimning asosiy qismi — " + ((CATS[c0.cat]||{label:c0.cat}).label).toLowerCase() + ": " + fmtUSD(c0.ekv);
+    }
+  }
+  return s + ".";
+}
+
+/* Hafta va oy boshidan beri yig'ilgan sof o'zgarish (haqiqiy balans farqlaridan) */
+function periodNets(i){
+  const d = new Date(DAYS[i].date + "T00:00:00");
+  const dow = (d.getDay() + 6) % 7; // 0 = dushanba
+  const weekStart = new Date(d); weekStart.setDate(d.getDate() - dow);
+  const monthStart = new Date(d.getFullYear(), d.getMonth(), 1);
+  let wk = 0, mo = 0, wkAny = false, moAny = false;
+  for(let j = 1; j <= i; j++){
+    const dj = new Date(DAYS[j].date + "T00:00:00");
+    if(dj > d) break;
+    const delta = dayTotals(j).total - dayTotals(j-1).total;
+    if(dj >= weekStart){ wk += delta; wkAny = true; }
+    if(dj >= monthStart){ mo += delta; moAny = true; }
+  }
+  return { wk:wk, mo:mo, wkAny:wkAny, moAny:moAny, monthName: MONTHS[d.getMonth()] };
 }
 
 /* ============ RENDER ============ */
@@ -548,19 +676,32 @@ function render(){
   let heroBottom;
   if(fs){
     const realNet = prev ? (tot.total - prev.total) : fs.net;
+    const splitHtml = fs.inCredit > 0
+      ? '<div class="split num">sotuv ' + fmtUSD(fs.inCustomer) + ' · qarz ' + fmtUSD(fs.inCredit) + '</div>'
+      : '';
     heroBottom =
+      '<div class="why">' + esc(whySentence(fs, realNet)) + '</div>' +
       '<div class="mini num">' +
-      '<div><span>Keldi</span><b class="pos">+' + fmtUSD(fs.inTotal) + '</b></div>' +
+      '<div><span>Keldi</span><b class="pos">+' + fmtUSD(fs.inTotal) + '</b>' + splitHtml + '</div>' +
       '<div><span>Ketdi</span><b class="neg">−' + fmtUSD(fs.outTotal) + '</b></div>' +
       '<div><span>Sof o\'zgarish</span><b class="' + (realNet >= 0 ? "pos" : "neg") + '">' + signUSD(realNet) + '</b></div>' +
       '</div>';
   } else {
     heroBottom = '<div class="quiet">Bu kun uchun kirim-chiqim kiritilmagan — faqat kassa qoldig\'i ko\'rsatilgan.</div>';
   }
+  const pn = periodNets(i);
+  let ctxHtml = "";
+  if(pn.wkAny || pn.moAny){
+    const mName = pn.monthName.charAt(0).toUpperCase() + pn.monthName.slice(1);
+    const seg = [];
+    if(pn.wkAny) seg.push('Bu hafta: <b class="' + (pn.wk >= 0 ? "pos" : "neg") + '">' + signUSD(pn.wk) + '</b>');
+    if(pn.moAny) seg.push(mName + ' boshidan: <b class="' + (pn.mo >= 0 ? "pos" : "neg") + '">' + signUSD(pn.mo) + '</b>');
+    ctxHtml = '<div class="ctx num">' + seg.join(' &nbsp;·&nbsp; ') + '</div>';
+  }
   document.getElementById("hero").innerHTML =
     '<div class="t">Jami pul · barcha kassalar (depozitsiz)</div>' +
     '<div class="big num">' + fmtUSD(tot.total) + ' <small>dollar ekvivalentida</small></div>' +
-    deltaHtml + heroBottom;
+    deltaHtml + heroBottom + ctxHtml;
 
   renderTrend();
 
@@ -571,11 +712,17 @@ function render(){
     inCard.open = false;
     document.getElementById("inAmt").textContent = "+" + fmtUSD(fs.inTotal);
     const uzsPart = fs.inRows.filter(r=>r.cur === "UZS").reduce((s,r)=>s+r.ekv,0);
-    let subTxt = plural(fs.inN, "to'lov") + " · mijozlardan";
-    if(uzsPart > 0 && uzsPart < fs.inTotal) subTxt += " · shundan so'mda ≈ " + fmtUSD(uzsPart);
+    let subTxt = plural(fs.inN, "to'lov");
+    if(fs.inCredit > 0){
+      subTxt += " · sotuvdan " + fmtUSD(fs.inCustomer) + " · qarzdan " + fmtUSD(fs.inCredit);
+    } else {
+      subTxt += " · mijozlardan";
+      if(uzsPart > 0 && uzsPart < fs.inTotal) subTxt += " · shundan so'mda ≈ " + fmtUSD(uzsPart);
+    }
     document.getElementById("inSub").textContent = subTxt + " — kim to'laganini ko'rish uchun bosing";
     document.getElementById("inList").innerHTML = fs.inRows.map(r=>
-      '<div class="row"><div class="name">' + esc(r.who) + '</div>' +
+      '<div class="row"><div class="name"><span class="idot" style="background:' +
+      ((CATS[r.cat]||{}).color || "#8A948E") + '"></span>' + esc(r.who) + '</div>' +
       '<div class="val num">' + fmtNative(r.amt, r.cur) +
       (r.cur !== "USD" ? ' <small>≈ ' + fmtUSD(r.ekv) + '</small>' : '') + '</div></div>'
     ).join("");
