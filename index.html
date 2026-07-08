@@ -23,6 +23,139 @@
   .num{font-variant-numeric:tabular-nums}
   .pos{color:var(--pos)} .neg{color:var(--neg)}
 
+  /* ---------- bosh ekran ---------- */
+  .home{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 18px}
+  .home-inner{max-width:520px;width:100%}
+  .home-brand{font-size:30px;font-weight:700;letter-spacing:-.02em;text-align:center}
+  .home-tag{font-size:14px;color:var(--muted);text-align:center;margin-top:4px;margin-bottom:26px}
+  .home-cards{display:flex;flex-direction:column;gap:12px}
+  .home-card{display:flex;align-items:center;gap:14px;text-align:left;width:100%;
+             background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;
+             cursor:pointer;font:inherit;color:var(--ink);transition:border-color .15s,transform .1s}
+  .home-card:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .home-card:active{transform:translateY(0)}
+  .hc-ico{flex:0 0 48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .hc-body{flex:1;min-width:0}
+  .hc-title{font-size:16px;font-weight:700}
+  .hc-title span{color:var(--muted);font-weight:400;font-size:13px}
+  .hc-desc{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.4}
+  .hc-meta{flex:0 0 auto;text-align:right;font-variant-numeric:tabular-nums}
+  .hc-meta .m1{font-size:15px;font-weight:700}
+  .hc-meta .m2{font-size:11px;color:var(--muted);margin-top:2px}
+  .home-foot{text-align:center;font-size:11.5px;color:var(--muted);margin-top:22px}
+
+  /* ---------- app bar (bo'lim ichida) ---------- */
+  .appbar{position:sticky;top:0;z-index:10;background:rgba(247,249,248,.92);backdrop-filter:blur(8px);
+          border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;
+          padding:11px 16px;margin-bottom:4px}
+  .appbar .back{background:none;border:none;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;
+                padding:5px 4px;font-weight:600;display:flex;align-items:center}
+  .appbar .back:hover{color:var(--gold)}
+  .appbar-title{font-size:14px;font-weight:700;color:var(--ink2)}
+
+  /* ---------- kreditorlar: kalendar va ro'yxatlar ---------- */
+  .cnote{border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5;margin-bottom:12px}
+  .cnote.warn{background:#FBEFEA;border:1px solid #E8B7A8;color:#7C2D1E}
+  .cnote.info{background:#F0F4F2;border:1px solid var(--line);color:var(--ink2)}
+  .cnote b{font-weight:700}
+
+  .due{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
+  .d-over{background:#FBE7E4;color:#B3362A}
+  .d-today{background:var(--gold);color:#fff}
+  .d-soon{background:#FBF3E2;color:#8A6314}
+  .d-ok{background:var(--track);color:var(--ink2);font-weight:600}
+  .d-paid{background:#E4F2EA;color:#1E7F5C}
+
+  .upc-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--track)}
+  .upc-row:first-child{border-top:none}
+  .upc-date{flex:0 0 52px;text-align:center;background:var(--track);border-radius:10px;padding:6px 2px}
+  .upc-date .dd{font-size:16px;font-weight:700;line-height:1.1}
+  .upc-date .mm{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .upc-who{flex:1;min-width:0;font-size:13.5px;font-weight:600}
+  .upc-who .n2{font-size:11.5px;color:var(--muted);font-weight:400;margin-top:1px}
+  .upc-amt{font-size:14px;font-weight:700;white-space:nowrap;text-align:right}
+  .upc-amt .due{display:block;margin-top:3px}
+
+  .cal-hidden{display:none}
+
+  /* --- to'lov chizig'i (gorizontal timeline) --- */
+  .tl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px 18px 6px}
+  .tl{position:relative}
+  .tl-band{position:absolute;top:22px;bottom:0;background:#F9ECEA;pointer-events:none}
+  .tl-mo{position:absolute;top:0;height:22px;font-family:Georgia,'Times New Roman',serif;font-style:italic;
+         font-size:15px;color:var(--ink);border-left:1px solid var(--line);padding-left:8px;
+         line-height:20px;white-space:nowrap;pointer-events:none}
+  .tl-days{display:flex;padding-top:24px;position:relative}
+  .tl-day{flex:0 0 26px;width:26px;text-align:center}
+  .tl-day .wd{font-size:8.5px;color:var(--muted);font-weight:700}
+  .tl-day .dn{font-size:12px;font-weight:600;color:var(--ink2);padding-top:1px}
+  .tl-day.we .wd,.tl-day.we .dn{color:#C0655B}
+  .tl-day.td .dn{color:var(--gold);font-weight:800}
+  .tl-marks{position:relative;height:172px;border-bottom:2px solid var(--line);margin-top:2px}
+  .tl-today-line{position:absolute;top:14px;bottom:-2px;width:0;border-left:2px dotted var(--gold);pointer-events:none}
+  .tl-today-line:after{content:"";position:absolute;bottom:-4px;left:-4px;width:6px;height:6px;
+                       background:var(--gold);border-radius:2px;transform:rotate(45deg)}
+  .tl-today-lbl{position:absolute;top:0;transform:translateX(-55%);font-size:9px;font-weight:800;
+                color:var(--gold);letter-spacing:.1em;pointer-events:none}
+  .tl-over-badge{position:absolute;top:13px;transform:translateX(-50%);font-size:9.5px;font-weight:800;
+                 color:var(--neg);background:#FBE7E4;padding:2px 7px;border-radius:99px;white-space:nowrap;
+                 opacity:.5;pointer-events:none;font-variant-numeric:tabular-nums}
+  .tl-mark{position:absolute;top:0;bottom:0;width:0;cursor:pointer}
+  .tl-mark .stick{position:absolute;left:-1px;width:2px;top:57px;bottom:0}
+  .tl-mark .pt{position:absolute;left:-4.5px;top:52px;width:9px;height:9px;border-radius:50%;border:2px solid #fff}
+  .tl-mark .lbl{position:absolute;left:-3px;top:15px;font-size:11.5px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tl-mark .amt2{position:absolute;left:-3px;top:30px;font-size:10px;color:var(--ink2);white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums}
+  .tl-mark .tl-tag{position:absolute;left:-3px;top:0;font-size:8.5px;font-weight:800;white-space:nowrap;
+                   padding:1px 5px;border-radius:99px;letter-spacing:.02em}
+  .tl-mark .tl-tag.over{background:#FBE7E4;color:#B3362A}
+  .tl-mark .tl-tag.today{background:var(--gold);color:#fff}
+  .tl-mark.lane2 .lbl{top:87px}
+  .tl-mark.lane2 .amt2{top:102px}
+  .tl-mark.lane2 .tl-tag{top:72px}
+  .tl-mark.lane2 .pt{top:124px}
+  .tl-mark.lane2 .stick{top:129px}
+
+  /* keng panel — to'lov jadvali uchun, markazlashган ustundан kengroq */
+  .panel-wide{max-width:1320px;width:calc(100vw - 28px);margin-left:50%;transform:translateX(-50%)}
+  @media(max-width:788px){
+    .panel-wide{width:100%;margin-left:0;transform:none;max-width:none}
+  }
+
+  /* --- to'lov jadvali (kreditor × kun matritsasi) --- */
+  .mx-wrap{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;border-top:1px solid var(--track)}
+  table.mx{border-collapse:separate;border-spacing:0;font-size:11.5px}
+  .mx th,.mx td{padding:7px 9px;border-bottom:1px solid var(--track);white-space:nowrap;
+                text-align:right;font-variant-numeric:tabular-nums;background:#fff}
+  .mx thead .mo th{text-align:left;border-bottom:none;background:#fff;
+                   font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12.5px;
+                   color:var(--ink);padding:6px 9px 0}
+  .mx thead .dy th{font-size:11px;color:var(--ink2);font-weight:700;
+                   border-bottom:1px solid var(--line);background:#fff;padding-top:14px;position:relative}
+  .mx thead .dy th .wdd{display:block;font-size:8.5px;font-weight:700;color:var(--muted)}
+  .mx thead .dy th.oh, .mx thead .dy th.oh .wdd{color:#B3362A}
+  .mx td.c-over{color:#B3362A;font-weight:700;background:#FDF4F2}
+  .mx td.c-paid{color:var(--muted)}
+  .mx td.c-paid s{opacity:.75}
+  .mx td.c-empty{color:#D7DEDA}
+  .mx .who{position:sticky;left:0;z-index:2;text-align:left;font-weight:700;border-right:1px solid var(--line);max-width:180px}
+  .mx thead .who{z-index:5}
+  .mx .who .wsub{display:block;font-size:10px;color:var(--muted);font-weight:600;margin-top:1px}
+  .mx tbody tr:hover td{background:#FAFBFA}
+  .mx tbody tr:hover td.c-over{background:#FBEDEA}
+  .mx tr.tot td{border-top:2px solid var(--ink);border-bottom:none;
+                font-weight:800;background:#fff}
+  .mx tr.tot td.who{z-index:4}
+  .mx .nx{border-left:2px solid var(--gold) !important;position:relative}
+  .mx thead .dy th.nx .nxlbl{position:absolute;top:1px;left:50%;transform:translateX(-50%);
+                             font-size:8px;font-weight:800;color:#fff;background:var(--gold);
+                             white-space:nowrap;letter-spacing:.02em;padding:1px 6px;border-radius:99px;z-index:6}
+
+  .cr-prog{height:5px;background:var(--track);border-radius:3px;margin-top:7px;overflow:hidden}
+  .cr-prog i{display:block;height:100%;border-radius:3px;background:var(--pos)}
+  .cr-note{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+  details.sub-acc .kids .row.paid .name, details.sub-acc .kids .row.paid .val{color:var(--muted);text-decoration:line-through}
+  .row .val .due{margin-left:8px;text-decoration:none !important}
+
   /* ---------- sarlavha ---------- */
   header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
   .brand{font-size:19px;font-weight:700;letter-spacing:-.01em}
@@ -167,6 +300,44 @@
 </style>
 </head>
 <body>
+
+<!-- ============ BOSH EKRAN (bo'lim tanlash) ============ -->
+<div class="home" id="homeView">
+  <div class="home-inner">
+    <div class="home-brand">Safar Travel</div>
+    <div class="home-tag">Moliyaviy boshqaruv paneli</div>
+    <div class="home-cards">
+      <button class="home-card" data-go="cashflow">
+        <div class="hc-ico" style="background:#0B3D33">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+        </div>
+        <div class="hc-body">
+          <div class="hc-title">Pul oqimi <span>· Cash Flow</span></div>
+          <div class="hc-desc">Kunlik kirim-chiqim, kassa qoldiqlari, sotuv va qarz taqsimoti</div>
+        </div>
+        <div class="hc-meta" id="hcCashMeta"></div>
+      </button>
+      <button class="home-card" data-go="creditors">
+        <div class="hc-ico" style="background:#6D5AA6">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="hc-body">
+          <div class="hc-title">Kreditorlar <span>· To'lovlar</span></div>
+          <div class="hc-desc">Qarz olish-berish, to'lov muddatlari, debitor va kreditorlar</div>
+        </div>
+        <div class="hc-meta" id="hcCredMeta"></div>
+      </button>
+    </div>
+    <div class="home-foot">Bo'limни tanlang · ma'lumot manbai: 1C hisob tizimi</div>
+  </div>
+</div>
+
+<!-- ============ CASH FLOW BO'LIMI ============ -->
+<div class="view" id="cashflowView" style="display:none">
+<div class="appbar">
+  <button class="back" data-back>‹ Bo'limlar</button>
+  <div class="appbar-title">Pul oqimi</div>
+</div>
 <div class="wrap">
 
   <header>
@@ -229,6 +400,58 @@
   </footer>
 
 </div>
+</div>
+
+<!-- ============ KREDITORLAR BO'LIMI ============ -->
+<div class="view" id="creditorsView" style="display:none">
+<div class="appbar">
+  <button class="back" data-back>‹ Bo'limlar</button>
+  <div class="appbar-title">Kreditorlar · To'lovlar</div>
+</div>
+<div class="wrap">
+
+  <section class="hero" id="credHero"></section>
+  <div id="credAlerts"></div>
+
+  <div class="panel" id="week7Card">
+    <div class="head">
+      <div><div class="h">1 hafta ichida</div><div class="sub" id="w7Sub"></div></div>
+      <div class="amt neg num" id="w7Amt"></div>
+    </div>
+    <div class="catwrap" id="w7List" style="padding-bottom:12px"></div>
+  </div>
+
+  <div class="panel">
+    <div class="head" style="padding-bottom:2px">
+      <div><div class="h">To'lov chizig'i</div><div class="sub">bugundan boshlanadi · chapga surib kechikkanlarni, o'ngga surib kelgusini ko'ring</div></div>
+    </div>
+    <div class="tl-scroll" id="tlScroll"><div class="tl" id="tl"></div></div>
+    <div class="catwrap" id="tlDayList"></div>
+  </div>
+
+  <div class="panel panel-wide">
+    <div class="head">
+      <div><div class="h">To'lov jadvali</div><div class="sub">qatorlar — kreditorlar · ustunlar — to'lov kunlari · yonga suriladi</div></div>
+    </div>
+    <div class="mx-wrap" id="mxWrap"></div>
+  </div>
+
+  <div class="panel">
+    <div class="head">
+      <div><div class="h">Kreditorlar bo'yicha</div><div class="sub" id="credListSub"></div></div>
+      <div class="amt num" id="credListAmt"></div>
+    </div>
+    <div class="catwrap" id="credList"></div>
+  </div>
+
+  <footer id="credFoot">
+    Barcha summalar dollarda deb qabul qilindi. "Kun qoldi" hisoblagichi sahifa ochilgan kunga qarab
+    avtomatik yangilanadi. To'lov amalga oshirilganda ro'yxatni yangilash uchun Claude'ga xabar bering.
+  </footer>
+
+</div>
+</div>
+
 
 <script>
 /* =====================================================================
@@ -619,6 +842,89 @@ const DAYS = [
       ]
     }
   }
+];
+
+/* =====================================================================
+   KREDITORLAR / TO'LOV JADVALI (INSTALLMENTS)
+   Yangilash: to'lov amalga oshirilganda tegishli itemda paid: summa
+   qilib yozing (masalan { due:"2026-07-10", amt:3750, paid:3750 }).
+   Yangi qarz qo'shish: massiv oxiriga { who, color, note, items:[...] }.
+   Hozircha barcha summalar AQSH dollarida deb qabul qilingan.
+===================================================================== */
+const INSTALLMENTS = [
+  { who:"Zabi", color:"#D9B23C", note:"O'tgan yili olingan", items:[
+      { due:"2026-07-10", amt:3750 },
+      { due:"2026-08-10", amt:3750 },
+      { due:"2026-08-15", amt:250000, note:"Asosiy qarz" }
+  ]},
+  { who:"MySafar 1", color:"#6E8FB5", note:"448 chipta × $680 — 6 oy $6,000 dan to'lab, asosiy summani qaytaramiz", items:[
+      { due:"2026-07-15", amt:6000 }, { due:"2026-08-15", amt:6000 },
+      { due:"2026-09-15", amt:6000 }, { due:"2026-10-15", amt:6000 },
+      { due:"2026-11-15", amt:6000 }, { due:"2026-12-15", amt:6000 },
+      { due:"2026-12-31", amt:304640, note:"Asosiy qarz (448×680)" }
+  ]},
+  { who:"MySafar 2", color:"#3FA8C9", note:"180×753 — havo yo'llari", items:[
+      { due:"2027-06-30", amt:135540, note:"Asosiy qarz (jadvalda 31.06 deb yozilgan)" },
+      { due:"2026-08-15", amt:2646 }, { due:"2026-09-15", amt:2646 },
+      { due:"2026-10-15", amt:2646 }, { due:"2026-11-15", amt:2646 },
+      { due:"2026-12-15", amt:2646 }, { due:"2027-01-15", amt:2646 },
+      { due:"2027-02-15", amt:2646 }, { due:"2027-03-15", amt:2646 },
+      { due:"2027-04-15", amt:2646 }, { due:"2027-05-15", amt:2646 }
+  ]},
+  { who:"Fayha mexmonxonasi", color:"#4C9A6E", note:"", items:[
+      { due:"2026-07-15", amt:66667 },
+      { due:"2026-08-15", amt:66667 },
+      { due:"2026-08-23", amt:200000 },
+      { due:"2026-09-15", amt:66667 },
+      { due:"2026-10-15", amt:30667 },
+      { due:"2026-10-20", amt:200000 },
+      { due:"2026-12-20", amt:200000 }
+  ]},
+  { who:"Broker", color:"#7FA893", note:"", items:[
+      { due:"2026-12-20", amt:24000 }
+  ]},
+  { who:"Asaxiy 01", color:"#D08C2E", note:"", items:[
+      { due:"2026-06-25", amt:4024 }, { due:"2026-07-25", amt:4024 },
+      { due:"2026-08-25", amt:4024 }, { due:"2026-09-25", amt:4024 },
+      { due:"2026-10-25", amt:4024 }, { due:"2026-11-25", amt:4024 },
+      { due:"2026-12-25", amt:4024 }, { due:"2027-01-25", amt:4024 },
+      { due:"2027-02-25", amt:4024 }, { due:"2027-03-25", amt:4024 },
+      { due:"2027-04-25", amt:4024 }, { due:"2027-05-30", amt:4024 }
+  ]},
+  { who:"Asaxiy 02", color:"#58A05E", note:"", items:[
+      { due:"2026-07-10", amt:1996 }, { due:"2026-08-10", amt:1996 },
+      { due:"2026-09-10", amt:1996 }, { due:"2026-10-10", amt:1996 },
+      { due:"2026-11-10", amt:1996 }, { due:"2026-12-10", amt:1996 },
+      { due:"2027-01-10", amt:1996 }, { due:"2027-02-10", amt:1996 },
+      { due:"2027-03-10", amt:1996 }, { due:"2027-04-10", amt:1996 },
+      { due:"2027-05-10", amt:1996 }, { due:"2027-06-10", amt:1996 }
+  ]},
+  { who:"Asaxiy 03", color:"#A0743C", note:"", items:[
+      { due:"2026-07-30", amt:3770 }, { due:"2026-08-30", amt:3770 },
+      { due:"2026-09-30", amt:3770 }, { due:"2026-10-30", amt:3770 },
+      { due:"2026-11-30", amt:3770 }, { due:"2026-12-30", amt:3770 },
+      { due:"2027-01-30", amt:3770 }, { due:"2027-02-28", amt:3770 },
+      { due:"2027-03-30", amt:3770 }, { due:"2027-04-30", amt:3770 },
+      { due:"2027-05-30", amt:3770 }, { due:"2027-06-30", amt:3770 },
+      { due:"2027-07-30", amt:3770 }
+  ]},
+  { who:"Isell 150", color:"#8A6FC0", note:"Aslida $145,400 kirgan; 1C da \"Islom aka variant 1\"; 28.04–15.05 kirgan pullar", items:[
+      { due:"2026-06-01", amt:2500, paid:2500 },
+      { due:"2026-07-01", amt:2500, paid:2500 },
+      { due:"2026-08-01", amt:2500 },
+      { due:"2026-09-01", amt:2500 },
+      { due:"2026-10-01", amt:2500 },
+      { due:"2026-11-01", amt:160000, note:"Asosiy qarz" }
+  ]},
+  { who:"Isell 200", color:"#2E9BB5", note:"", items:[
+      { due:"2026-08-10", amt:3000 }, { due:"2026-09-10", amt:3000 },
+      { due:"2026-10-10", amt:3000 }, { due:"2026-11-10", amt:3000 },
+      { due:"2026-12-10", amt:3000 }, { due:"2027-01-10", amt:3000 },
+      { due:"2027-02-10", amt:3000 }, { due:"2027-03-10", amt:3000 },
+      { due:"2027-04-10", amt:3000 }, { due:"2027-05-10", amt:3000 },
+      { due:"2027-06-10", amt:3000 },
+      { due:"2027-07-10", amt:203000, note:"Asosiy qarz" }
+  ]}
 ];
 
 /* ================== HOLAT ================== */
@@ -1104,6 +1410,362 @@ function renderDonut(tot){
 window.addEventListener("beforeprint", ()=>{ document.querySelectorAll("details").forEach(d=>d.open = true); });
 
 render();
+
+/* ============ KREDITORLAR BO'LIMI ============ */
+const credState = { selDate: null };
+
+function todayMid(){ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
+function parseD(ds){ return new Date(ds + "T00:00:00"); }
+function daysLeft(ds){ return Math.round((parseD(ds) - todayMid()) / 86400000); }
+function dueBadge(ds, isPaid){
+  if(isPaid) return '<span class="due d-paid">to\'landi ✓</span>';
+  const d = daysLeft(ds);
+  if(d < 0)  return '<span class="due d-over">' + Math.abs(d) + ' kun kechikdi</span>';
+  if(d === 0) return '<span class="due d-today">bugun</span>';
+  if(d === 1) return '<span class="due d-soon">ertaga</span>';
+  if(d <= 7)  return '<span class="due d-soon">' + d + ' kun qoldi</span>';
+  return '<span class="due d-ok">' + d + ' kun qoldi</span>';
+}
+function fmtK(v){
+  if(v >= 1e6) return "$" + (v/1e6).toFixed(2).replace(/0$/,"").replace(/\.0$/,"").replace(".", ",") + "M";
+  if(v >= 1e3) return "$" + (v/1e3).toFixed(1).replace(/\.0$/,"").replace(".", ",") + "k";
+  return "$" + Math.round(v);
+}
+function credItemsFlat(){
+  const out = [];
+  INSTALLMENTS.forEach(c => c.items.forEach(it => {
+    out.push({ who:c.who, color:c.color, due:it.due, amt:it.amt, paid:it.paid || 0,
+               left: it.amt - (it.paid || 0), note: it.note || "" });
+  }));
+  return out.sort((a,b) => a.due < b.due ? -1 : 1);
+}
+function credTotals(){
+  let gross = 0, paid = 0, overdue = 0, overN = 0;
+  const flat = credItemsFlat();
+  flat.forEach(x => {
+    gross += x.amt; paid += x.paid;
+    if(x.left > 0 && daysLeft(x.due) < 0){ overdue += x.left; overN++; }
+  });
+  const unpaid = flat.filter(x => x.left > 0);
+  return { gross:gross, paid:paid, left:gross - paid, overdue:overdue, overN:overN,
+           next: unpaid.find(x => daysLeft(x.due) >= 0) || null, flat:flat, unpaid:unpaid };
+}
+
+function renderCreditors(){
+  const T = credTotals();
+
+  /* --- hero --- */
+  let nextHtml = "";
+  if(T.next){
+    const d = daysLeft(T.next.due);
+    nextHtml = '<div><span>Eng yaqin to\'lov</span><b class="num">' + fmtUSD(T.next.left) + '</b>' +
+      '<div class="split num">' + parseD(T.next.due).getDate() + '-' + MONTHS[parseD(T.next.due).getMonth()] +
+      ' · ' + esc(T.next.who) + ' · ' + (d === 0 ? "bugun" : d + " kun qoldi") + '</div></div>';
+  }
+  document.getElementById("credHero").innerHTML =
+    '<div class="t">Jami qarz qoldig\'i · ' + INSTALLMENTS.length + ' kreditor</div>' +
+    '<div class="big num">' + fmtUSD(T.left) + ' <small>dollarda</small></div>' +
+    (T.paid > 0 ? '<div class="delta pos num">to\'langan: ' + fmtUSD(T.paid) + ' / ' + fmtUSD(T.gross) + '</div>' : '') +
+    '<div class="mini num">' +
+      '<div><span>Muddati o\'tgan</span><b class="' + (T.overdue > 0 ? "neg" : "pos") + '">' +
+        (T.overdue > 0 ? fmtUSD(T.overdue) : "yo\'q") + '</b>' +
+        (T.overN ? '<div class="split">' + T.overN + ' ta to\'lov</div>' : '') + '</div>' +
+      '<div><span>30 kun ichida</span><b class="num">' + fmtUSD(
+        T.unpaid.filter(x => { const d = daysLeft(x.due); return d >= 0 && d <= 30; }).reduce((s,x)=>s+x.left,0)
+      ) + '</b></div>' +
+      nextHtml +
+    '</div>';
+
+  /* --- ogohlantirishlar --- */
+  let alerts = "";
+  if(T.overN){
+    const rows = T.unpaid.filter(x => daysLeft(x.due) < 0)
+      .map(x => esc(x.who) + " " + fmtUSD(x.left) + " (" + Math.abs(daysLeft(x.due)) + " kun)").join(" · ");
+    alerts += '<div class="cnote warn"><b>' + T.overN + ' ta to\'lov muddati o\'tib ketgan — jami ' +
+              fmtUSD(T.overdue) + ':</b> ' + rows + '</div>';
+  }
+  document.getElementById("credAlerts").innerHTML = alerts;
+
+  /* --- 1 hafta ichida (kechikkanlar + bugundan 7 kun) --- */
+  const wk = T.unpaid.filter(x => daysLeft(x.due) <= 7);
+  const wkTotal = wk.reduce((s,x)=>s+x.left,0);
+  const MM3 = ["yan","fev","mar","apr","may","iyn","iyl","avg","sen","okt","noy","dek"];
+  document.getElementById("w7Amt").textContent = "−" + fmtUSD(wkTotal);
+  document.getElementById("w7Sub").textContent = wk.length
+    ? wk.length + " ta to'lov · kechikkanlar va kelasi 7 kun"
+    : "yaqin 7 kunda to'lov yo'q";
+  document.getElementById("w7List").innerHTML = wk.map(x => {
+    const dt = parseD(x.due);
+    return '<div class="upc-row">' +
+      '<div class="upc-date"><div class="dd num">' + dt.getDate() + '</div><div class="mm">' + MM3[dt.getMonth()] + '</div></div>' +
+      '<div class="upc-who"><span class="cdot" style="background:' + x.color + '"></span>' + esc(x.who) +
+        (x.note ? '<div class="n2">' + esc(x.note) + '</div>' : '') + '</div>' +
+      '<div class="upc-amt num">' + fmtUSD(x.left) + dueBadge(x.due, false) + '</div></div>';
+  }).join("") || '<div class="cr-note" style="padding:8px 0">Yaqin 7 kunda to\'lov yo\'q — eng yaqini yuqorida ko\'rsatilgan.</div>';
+  document.getElementById("week7Card").style.display = "";
+
+  renderTimeline();
+  renderMatrix();
+  renderCredList(T);
+}
+
+/* --- gorizontal to'lov chizig'i (1-rasm uslubida) --- */
+const TL_COLW = 26;
+const WD2 = ["Du","Se","Ch","Pa","Ju","Sh","Ya"];
+let tlTodayX = 0;
+
+function renderTimeline(){
+  const flat = credItemsFlat();
+  const t = todayMid();
+
+  // lenta bugundan boshlanadi; kechikkanlar bo'lsa, eng erta kechikkangacha orqaga cho'ziladi
+  let minD = new Date(t), maxD = new Date(t);
+  flat.forEach(x => {
+    const d = parseD(x.due);
+    if(x.left > 0 && d < t && d < minD) minD = new Date(d);   // faqat to'lanmagan kechikkanlar
+    if(d > maxD) maxD = new Date(d);
+  });
+  minD.setDate(minD.getDate() - 2);
+  maxD.setDate(maxD.getDate() + 4);
+  const nDays = Math.round((maxD - minD) / 86400000) + 1;
+  const W = nDays * TL_COLW;
+
+  const byDate = {};
+  flat.forEach(x => { if(x.left > 0) (byDate[x.due] = byDate[x.due] || []).push(x); });
+
+  let bands = "", months = "", days = "", marks = "";
+  let lastLane1 = -1e9;
+
+  for(let i = 0; i < nDays; i++){
+    const d = new Date(minD); d.setDate(minD.getDate() + i);
+    const x = i * TL_COLW;
+    const dow = (d.getDay() + 6) % 7;
+    const isToday = d.getTime() === t.getTime();
+    if(dow === 5) bands += '<div class="tl-band" style="left:' + x + 'px;width:' + (TL_COLW*2) + 'px"></div>';
+    if(d.getDate() === 1 || i === 0){
+      months += '<div class="tl-mo" style="left:' + x + 'px">' +
+        MONTHS[d.getMonth()].charAt(0).toUpperCase() + MONTHS[d.getMonth()].slice(1) +
+        (d.getMonth() === 0 || i === 0 ? ' ' + d.getFullYear() : '') + '</div>';
+    }
+    days += '<div class="tl-day' + (dow >= 5 ? ' we' : '') + (isToday ? ' td' : '') + '">' +
+      '<div class="wd">' + WD2[dow] + '</div><div class="dn num">' + d.getDate() + '</div></div>';
+    if(isToday) tlTodayX = x + TL_COLW / 2;
+
+    const key = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0"+d.getDate()).slice(-2);
+    const items = byDate[key];
+    if(items){
+      const total = items.reduce((s,it)=>s+it.left,0);
+      const dl = daysLeft(key);
+      const col = dl < 0 ? "var(--neg)" : (dl <= 7 ? "var(--gold)" : "var(--ink)");
+      const cx = x + TL_COLW / 2;
+      const lane2 = (cx - lastLane1) < 58;
+      if(!lane2) lastLane1 = cx;
+      const tag = dl < 0
+        ? '<div class="tl-tag over">kechikkan</div>'
+        : (dl === 0 ? '<div class="tl-tag today">bugun</div>' : '');
+      marks += '<div class="tl-mark' + (lane2 ? ' lane2' : '') + '" data-tld="' + key + '" style="left:' + cx + 'px">' +
+        tag +
+        '<div class="lbl" style="color:' + col + '">' + ("0"+d.getDate()).slice(-2) + '.' + ("0"+(d.getMonth()+1)).slice(-2) + '</div>' +
+        '<div class="amt2">' + fmtK(total) + (items.length > 1 ? ' · ' + items.length + ' ta' : '') + '</div>' +
+        '<div class="stick" style="background:' + col + '"></div>' +
+        '<div class="pt" style="background:' + col + '"></div></div>';
+    }
+  }
+
+  // kechikkan umumiy summa (bugungacha to'lanmagan)
+  const overTotal = flat.filter(x => x.left > 0 && parseD(x.due) < t).reduce((s,x)=>s+x.left,0);
+  const overBadge = overTotal > 0
+    ? '<div class="tl-over-badge" style="left:' + tlTodayX + 'px">kechikkan · ' + fmtUSD(overTotal) + '</div>'
+    : '';
+
+  document.getElementById("tl").innerHTML =
+    '<div style="width:' + W + 'px;position:relative">' + bands + months +
+    '<div class="tl-days">' + days + '</div>' +
+    '<div class="tl-marks">' + marks +
+    '<div class="tl-today-line" style="left:' + tlTodayX + 'px"></div>' +
+    '<div class="tl-today-lbl" style="left:' + tlTodayX + 'px">BUGUN</div>' +
+    overBadge +
+    '</div></div>';
+
+  renderTlDayList();
+}
+
+function tlScrollToToday(){
+  const sc = document.getElementById("tlScroll");
+  if(sc) sc.scrollLeft = Math.max(0, tlTodayX - 44);
+}
+
+function renderTlDayList(){
+  const box = document.getElementById("tlDayList");
+  if(!credState.selDate){ box.innerHTML = ""; return; }
+  const items = credItemsFlat().filter(x => x.due === credState.selDate && x.left > 0);
+  if(!items.length){ box.innerHTML = ""; return; }
+  const d = parseD(credState.selDate);
+  box.innerHTML = '<div style="border-top:1px solid var(--track);padding:10px 0 12px">' +
+    '<div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:4px">' +
+    d.getDate() + '-' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + ' to\'lovlari &nbsp;' +
+    dueBadge(credState.selDate, false) + '</div>' +
+    items.map(x => '<div class="row"><div class="name"><span class="cdot" style="background:' + x.color + '"></span>' +
+      esc(x.who) + (x.note ? ' <span class="pct">· ' + esc(x.note) + '</span>' : '') + '</div>' +
+      '<div class="val num">' + fmtUSD(x.left) + '</div></div>').join("") + '</div>';
+}
+
+/* --- to'lov jadvali: kreditor × kun matritsasi (2-rasm uslubida, kunlik) --- */
+function renderMatrix(){
+  const t = todayMid();
+  const dateSet = {};
+  INSTALLMENTS.forEach(c => c.items.forEach(it => { dateSet[it.due] = 1; }));
+  const dates = Object.keys(dateSet).sort();
+
+  const moGroups = [];
+  dates.forEach(ds => {
+    const d = parseD(ds);
+    const key = d.getFullYear() + "-" + d.getMonth();
+    const last = moGroups[moGroups.length - 1];
+    if(last && last.key === key) last.n++;
+    else moGroups.push({ key:key, n:1,
+      label: MONTHS[d.getMonth()].charAt(0).toUpperCase() + MONTHS[d.getMonth()].slice(1) +
+             (d.getMonth() === 0 || moGroups.length === 0 ? " " + d.getFullYear() : "") });
+  });
+
+  // har bir sanada to'lanmagan qoldiq (sarlavha rangi uchun)
+  const leftByDate = {};
+  INSTALLMENTS.forEach(c => c.items.forEach(it => {
+    leftByDate[it.due] = (leftByDate[it.due] || 0) + it.amt - (it.paid || 0);
+  }));
+
+  // bugundan keyingi birinchi to'lov ustuni (bugun chizig'i shu yerga qo'yiladi)
+  let firstFutureIdx = dates.findIndex(ds => parseD(ds) >= t);
+
+  let html = '<table class="mx"><thead>';
+  html += '<tr class="mo"><th class="who"></th>' +
+    moGroups.map(g => '<th colspan="' + g.n + '">' + g.label + '</th>').join("") + '</tr>';
+  html += '<tr class="dy"><th class="who">Kreditor</th>' + dates.map((ds, ci) => {
+    const d = parseD(ds);
+    const isOver = d < t && (leftByDate[ds] || 0) > 0;
+    const isNext = ci === firstFutureIdx;
+    return '<th class="' + (isOver ? "oh " : "") + (isNext ? "nx" : "") + '">' +
+      (isNext ? '<span class="nxlbl">bugundan →</span>' : '') +
+      '<span class="num">' + d.getDate() + '</span>' +
+      '<span class="wdd">' + WD2[(d.getDay()+6)%7] + '</span></th>';
+  }).join("") + '</tr></thead><tbody>';
+
+  INSTALLMENTS.forEach(c => {
+    const map = {};
+    c.items.forEach(it => { map[it.due] = it; });
+    const left = c.items.reduce((s,i)=>s+i.amt-(i.paid||0),0);
+    html += '<tr><td class="who"><span class="cdot" style="background:' + c.color + '"></span>' + esc(c.who) +
+      '<span class="wsub num">qoldiq ' + fmtK(left) + '</span></td>';
+    html += dates.map((ds, ci) => {
+      const it = map[ds];
+      const nx = (ci === firstFutureIdx) ? " nx" : "";
+      if(!it) return '<td class="c-empty' + nx + '">·</td>';
+      const isPaid = (it.amt - (it.paid||0)) <= 0;
+      if(isPaid) return '<td class="c-paid num' + nx + '">✓ <s>' + fmt(it.amt) + '</s></td>';
+      return '<td class="num' + (parseD(ds) < t ? ' c-over' : '') + nx + '">' + fmt(it.amt) + '</td>';
+    }).join("");
+    html += '</tr>';
+  });
+
+  html += '<tr class="tot"><td class="who">Kunlik jami</td>' + dates.map((ds, ci) => {
+    const nx = (ci === firstFutureIdx) ? " nx" : "";
+    let s = 0;
+    INSTALLMENTS.forEach(c => c.items.forEach(it => { if(it.due === ds) s += it.amt - (it.paid||0); }));
+    if(s <= 0) return '<td class="c-paid' + nx + '">✓</td>';
+    return '<td class="num' + (parseD(ds) < t ? ' c-over' : '') + nx + '">' + fmt(s) + '</td>';
+  }).join("") + '</tr>';
+
+  html += '</tbody></table>';
+  document.getElementById("mxWrap").innerHTML = html;
+}
+
+/* --- kreditorlar ro'yxati --- */
+function renderCredList(T){
+  document.getElementById("credListAmt").textContent = fmtUSD(T.left);
+  document.getElementById("credListSub").textContent = "ichini ko'rish uchun kreditorni bosing";
+  document.getElementById("credList").innerHTML = INSTALLMENTS.map(c => {
+    const gross = c.items.reduce((s,i)=>s+i.amt,0);
+    const paid  = c.items.reduce((s,i)=>s+(i.paid||0),0);
+    const left  = gross - paid;
+    const share = T.left ? left/T.left*100 : 0;
+    const unpaidItems = c.items.filter(i => (i.amt-(i.paid||0)) > 0);
+    const nxt = unpaidItems.slice().sort((a,b)=>a.due<b.due?-1:1)[0];
+    const kids = c.items.map(i => {
+      const isPaid = (i.amt - (i.paid||0)) <= 0;
+      return '<div class="row' + (isPaid ? ' paid' : '') + '"><div class="name num">' +
+        parseD(i.due).getDate() + '-' + MONTHS[parseD(i.due).getMonth()].slice(0,3) + ' ' + parseD(i.due).getFullYear() +
+        (i.note ? ' <span class="pct">· ' + esc(i.note) + '</span>' : '') + '</div>' +
+        '<div class="val num">' + fmtUSD(i.amt) + ' ' + dueBadge(i.due, isPaid) + '</div></div>';
+    }).join("");
+    return '<details class="sub-acc">' +
+      '<summary><div class="top">' +
+      '<div class="name"><span class="cdot" style="background:' + c.color + '"></span>' + esc(c.who) +
+      ' <span class="pct">· ' + unpaidItems.length + ' to\'lov qoldi</span></div>' +
+      '<div class="val num">' + fmtUSD(left) +
+      (nxt ? ' <span class="pct">keyingisi: ' + parseD(nxt.due).getDate() + '-' + MONTHS[parseD(nxt.due).getMonth()].slice(0,3) + '</span>' : '') +
+      '</div></div>' +
+      '<div class="bar"><i style="width:' + share.toFixed(1) + '%;background:' + c.color + '"></i></div>' +
+      (c.note ? '<div class="cr-note">' + esc(c.note) + '</div>' : '') +
+      '</summary><div class="kids">' + kids + '</div></details>';
+  }).join("");
+}
+
+/* to'lov chizig'i hodisasi */
+document.getElementById("tl").addEventListener("click", e => {
+  const m = e.target.closest ? e.target.closest("[data-tld]") : null;
+  if(!m) return;
+  const d = m.getAttribute("data-tld");
+  credState.selDate = (credState.selDate === d) ? null : d;
+  renderTlDayList();
+});
+
+renderCreditors();
+
+/* ============ BO'LIMLAR ORASIDA NAVIGATSIYA ============ */
+function showView(name){
+  const home = document.getElementById("homeView");
+  const cf = document.getElementById("cashflowView");
+  const cr = document.getElementById("creditorsView");
+  home.style.display = (name === "home") ? "flex" : "none";
+  cf.style.display   = (name === "cashflow") ? "block" : "none";
+  cr.style.display   = (name === "creditors") ? "block" : "none";
+  if(name === "home") fillHomeMeta();
+  if(name === "creditors") setTimeout(tlScrollToToday, 0);
+  window.scrollTo(0, 0);
+}
+
+/* Bosh ekrandagi kartalarda qisqacha joriy holat */
+function fillHomeMeta(){
+  const last = DAYS.length - 1;
+  const t = dayTotals(last);
+  const prev = last > 0 ? dayTotals(last-1) : null;
+  const dv = prev ? t.total - prev.total : 0;
+  document.getElementById("hcCashMeta").innerHTML =
+    '<div class="m1 num">' + fmtUSD(t.total) + '</div>' +
+    '<div class="m2 num ' + (dv >= 0 ? "pos" : "neg") + '">' + (prev ? signUSD(dv) + " bugun" : shortLabel(DAYS[last].date)) + '</div>';
+  const CT = credTotals();
+  let credLine2;
+  if(CT.overN) credLine2 = '<div class="m2 num neg">' + CT.overN + ' ta kechikkan · ' + fmtUSD(CT.overdue) + '</div>';
+  else if(CT.next) credLine2 = '<div class="m2 num">keyingisi: ' + parseD(CT.next.due).getDate() + '-' + MONTHS[parseD(CT.next.due).getMonth()].slice(0,3) + ' · ' + fmtUSD(CT.next.left) + '</div>';
+  else credLine2 = '<div class="m2">to\'lovlar yo\'q</div>';
+  document.getElementById("hcCredMeta").innerHTML =
+    '<div class="m1 num">' + fmtUSD(CT.left) + '</div>' + credLine2;
+}
+
+document.querySelectorAll("[data-go]").forEach(b=>{
+  b.addEventListener("click", ()=>{ location.hash = b.getAttribute("data-go"); });
+});
+document.querySelectorAll("[data-back]").forEach(b=>{
+  b.addEventListener("click", ()=>{ location.hash = ""; });
+});
+
+function routeFromHash(){
+  const h = (location.hash || "").replace("#","");
+  if(h === "cashflow" || h === "creditors") showView(h);
+  else showView("home");
+}
+window.addEventListener("hashchange", routeFromHash);
+routeFromHash();
 </script>
 </body>
 </html>
