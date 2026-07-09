@@ -297,6 +297,76 @@
     .panel,.hero{border-color:#ccc;break-inside:avoid}
     .tt{display:none}
   }
+  /* ---------- paketlar: foyda-ziyon (SPL) ---------- */
+  .sp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--track)}
+  table.sp{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+  table.sp th{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+              font-weight:600;text-align:right;padding:10px 11px;border-bottom:1px solid var(--line);
+              white-space:nowrap;background:#fff}
+  table.sp th:first-child{text-align:left}
+  table.sp td{padding:9px 11px;text-align:right;white-space:nowrap;background:#fff;
+              font-variant-numeric:tabular-nums;border-bottom:1px solid var(--track)}
+  table.sp td:first-child{text-align:left;font-variant-numeric:normal}
+  .sp-z{color:#C6CFCB}
+
+  /* --- SPL jadvali --- */
+  table.sp-pl{min-width:660px}
+  .sp-pl th:first-child,.sp-pl td:first-child{position:sticky;left:0;z-index:2;
+              min-width:186px;border-right:1px solid var(--line)}
+  .sp-pl .sp-lbl{color:var(--ink2)}
+  .sp-pl .sp-lbl em{font-style:normal;color:var(--muted);font-size:11px}
+  .sp-pl .sp-pp{display:block;font-size:10.5px;color:var(--muted);margin-top:1px;font-weight:400}
+  .sp-pl td.sp-tot{background:#F4F7F5;font-weight:700;border-right:1px solid var(--line)}
+  .sp-pl tr.sp-sum td{background:#F4F7F5;font-weight:700;border-top:1px solid var(--line)}
+  .sp-pl tr.sp-sum td.sp-tot{background:#E9F0EC}
+  .sp-pl tr.sp-marj td{font-size:11.5px;color:var(--muted);font-weight:600;
+              padding-top:0;padding-bottom:10px;background:#F4F7F5;border-bottom:1px solid var(--line)}
+  .sp-pl tr.sp-marj td.sp-tot{background:#E9F0EC}
+  .sp-pl tr.sp-spacer td{height:12px;padding:0;background:var(--paper);border:none}
+  .sp-pl tr.sp-big td{background:var(--ink);color:#fff;font-weight:700;font-size:14px;
+              border-bottom:none;padding-top:12px;padding-bottom:12px}
+  .sp-pl tr.sp-big td.sp-tot{background:#08302A}
+  .sp-pl tr.sp-big .sp-lbl{color:#fff}
+  .sp-pl tr.sp-big .neg{color:#F0A79E}
+  .sp-pl tr.sp-big .sp-pp{color:#9FB4AD}
+  .sp-pl tr.sp-big .sp-z{color:#6C8A82}
+  .sp-pl tr.sp-marj2 td{font-size:11.5px;font-weight:600;color:var(--muted);
+              padding-top:6px;padding-bottom:10px;border-bottom:none}
+  .sp-pl tr.sp-marj2 td.sp-tot{background:#F4F7F5}
+
+  .sp-toggle{display:inline-flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:#fff}
+  .sp-toggle button{border:0;background:transparent;font:inherit;font-size:11.5px;font-weight:600;
+              padding:5px 11px;cursor:pointer;color:var(--muted)}
+  .sp-toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+  /* --- biletlar --- */
+  table.sp-bt{min-width:740px}
+  .sp-bt tr.sp-grp td{background:#F4F7F5;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;
+              color:var(--ink2);font-weight:700;padding:8px 11px;border-bottom:1px solid var(--line)}
+  .sp-bt tbody tr:hover td{background:#FAFBFA}
+  .sp-bt tbody tr.sp-grp:hover td{background:#F4F7F5}
+  .sp-bt td.sp-name{font-weight:600}
+  .sp-bt tr.sp-t td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800;background:#fff}
+  .sp-fill{display:flex;width:96px;height:6px;border-radius:3px;overflow:hidden;
+           margin-left:auto;background:var(--track)}
+  .sp-fill i{display:block;height:100%;box-shadow:inset -1px 0 0 #fff}
+  .sp-fill i:last-child{box-shadow:none}
+  .sp-fill .a{background:var(--pos)} .sp-fill .b{background:var(--gold)} .sp-fill .c{background:var(--neg)}
+  .sp-leg{display:inline-flex;align-items:center;gap:6px;margin-right:14px}
+  .sp-leg i{width:8px;height:8px;border-radius:2px;display:inline-block}
+
+  /* --- paketlar bo'yicha --- */
+  table.sp-pk{min-width:520px}
+  .sp-pk tr.sp-grp td{background:#F4F7F5;font-weight:700;color:var(--ink);
+              border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sp-pk td.sp-child{padding-left:28px;color:var(--muted)}
+  .sp-pk tr.sp-t td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800}
+
+  @media(max-width:560px){
+    table.sp th,table.sp td{padding:8px 8px;font-size:12px}
+    .sp-pl th:first-child,.sp-pl td:first-child{min-width:150px}
+    .sp-fill{width:64px}
+  }
 </style>
 </head>
 <body>
@@ -326,6 +396,16 @@
           <div class="hc-desc">Qarz olish-berish, to'lov muddatlari, debitor va kreditorlar</div>
         </div>
         <div class="hc-meta" id="hcCredMeta"></div>
+      </button>
+      <button class="home-card" data-go="paketlar">
+        <div class="hc-ico" style="background:#B98A2F">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+        </div>
+        <div class="hc-body">
+          <div class="hc-title">Paketlar <span>· Foyda-ziyon</span></div>
+          <div class="hc-desc">Reyslar bo'yicha SPL, biletlar sotilishi, paket turlari</div>
+        </div>
+        <div class="hc-meta" id="hcPakMeta"></div>
       </button>
     </div>
     <div class="home-foot">Bo'limни tanlang · ma'lumot manbai: 1C hisob tizimi</div>
@@ -447,6 +527,74 @@
   <footer id="credFoot">
     Barcha summalar dollarda deb qabul qilindi. "Kun qoldi" hisoblagichi sahifa ochilgan kunga qarab
     avtomatik yangilanadi. To'lov amalga oshirilganda ro'yxatni yangilash uchun Claude'ga xabar bering.
+  </footer>
+
+</div>
+</div>
+
+<!-- ============ PAKETLAR BO'LIMI ============ -->
+<div class="view" id="paketlarView" style="display:none">
+<div class="appbar">
+  <button class="back" data-back>‹ Bo'limlar</button>
+  <div class="appbar-title">Paketlar · Foyda-ziyon</div>
+</div>
+<div class="wrap">
+
+  <section class="hero" id="pakHero"></section>
+
+  <div class="panel panel-wide">
+    <div class="head">
+      <div><div class="h">Foyda va ziyon</div><div class="sub">reyslar kesimida · summalar dollarda</div></div>
+      <div class="sp-toggle">
+        <button id="spPPon" aria-pressed="true">1 pax bilan</button>
+        <button id="spPPoff" aria-pressed="false">Faqat jami</button>
+      </div>
+    </div>
+    <div class="sp-scroll">
+      <table class="sp sp-pl" id="spPl"><thead></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <div class="panel panel-wide">
+    <div class="head">
+      <div><div class="h">Biletlar sotilishi</div><div class="sub">kvota = paketdagilar + alohida sotilgan bilet + bo'sh qolgan joy</div></div>
+      <div class="amt neg num" id="spBiletAmt"></div>
+    </div>
+    <div class="sp-scroll">
+      <table class="sp sp-bt" id="spBt">
+        <thead><tr>
+          <th>Reys</th><th>Kvota</th><th>Paketda</th><th>Bilet sotildi</th><th>Bo'sh qoldi</th>
+          <th>To'lish</th><th>Tushum</th><th>Tannarx</th><th>Natija</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="dep">
+      <div>
+        <span class="sp-leg"><i style="background:var(--pos)"></i>Paketda</span>
+        <span class="sp-leg"><i style="background:var(--gold)"></i>Bilet</span>
+        <span class="sp-leg"><i style="background:var(--neg)"></i>Bo'sh</span>
+      </div>
+      <div id="spBiletNote"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="head">
+      <div><div class="h">Paketlar bo'yicha</div><div class="sub">har bir reys ichida paket turlari · marja bo'yicha</div></div>
+    </div>
+    <div class="sp-scroll">
+      <table class="sp sp-pk" id="spPk">
+        <thead><tr><th>Paket</th><th>Pax</th><th>Sotuv</th><th>Tannarx</th><th>Yalpi foyda</th><th>Marja</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Manba: 1C — Paketlar_SPL · kurs 1$ = 12 000 so'm. "Qo'shimcha xarajat" — reysga bog'liq
+    avtobus va poyezd xarajatlari. 25-iyun qaytish reysida 23 o'rindiq bo'sh ketdi — $5&nbsp;865 zarar
+    biletlar tannarxiga kiritilgan.
   </footer>
 
 </div>
@@ -1797,14 +1945,253 @@ document.getElementById("tl").addEventListener("click", e => {
 
 renderCreditors();
 
+/* =====================================================================
+   PAKETLAR — FOYDA-ZIYON (SPL)
+   Manba: 1C "Paketlar_SPL". Yangi reys qo'shish: PAKET_REYS oxiriga
+   { sana, pax, sales, cost, extra, bs, bc, paketlar:[[nom,pax,sotuv,tannarx],...] }
+   Bilet kvotasi: PAKET_LEGS oxiriga { yon, sana, kvota, paket, bilet, bosh, sotuv, tannarx }
+   ===================================================================== */
+const PAKET_REYS = [
+  { sana:"18-iyun", pax:40, sales:65350, cost:-59616, extra:-640,  bs:0,     bc:0,
+    paketlar:[["ADDRESS 7",13,23922,-20616],["TAJ 14",17,23335,-22866],["EBA 14",8,14193,-12872],["SWISS 7",2,3900,-3262]] },
+  { sana:"25-iyun", pax:46, sales:74413, cost:-67078, extra:-1500, bs:3130,  bc:-10425,
+    paketlar:[["TAJ 14",19,27519,-25325],["ADDRESS 7",10,16884,-14920],["SWISS 7",8,15507,-13432],["EBA 14",9,14503,-13401]] },
+  { sana:"2-iyul",  pax:33, sales:53626, cost:-48451, extra:0,     bs:9270,  bc:-10540,
+    paketlar:[["SWISS 7",18,32547,-27756],["TAJ 14",10,14813,-14650],["SAFAR 14",5,6266,-6045]] },
+  { sana:"9-iyul",  pax:40, sales:58001, cost:-51311, extra:0,     bs:21800, bc:-26020,
+    paketlar:[["ADDRESS 7",9,15898,-13656],["SWISS 7",8,15641,-13368],["SAFAR 14",14,14358,-12440],["TAJ 14",7,8510,-8627],["EBA 14",2,3594,-3220]] },
+  { sana:"11-iyul", pax:39, sales:40864, cost:-40048, extra:0,     bs:0,     bc:0,
+    paketlar:[["SAFAR 14",39,40864,-40048]] }
+];
+
+const PAKET_LEGS = [
+  { yon:"Ketish · Toshkent → Jidda",  sana:"18-iyun", kvota:41, paket:41, bilet:0,  bosh:0,  sotuv:0,     tannarx:0 },
+  { yon:"Ketish · Toshkent → Jidda",  sana:"25-iyun", kvota:50, paket:47, bilet:3,  bosh:0,  sotuv:1350,  tannarx:-1500 },
+  { yon:"Ketish · Toshkent → Jidda",  sana:"2-iyul",  kvota:50, paket:33, bilet:17, bosh:0,  sotuv:7490,  tannarx:-8500 },
+  { yon:"Ketish · Toshkent → Jidda",  sana:"9-iyul",  kvota:90, paket:40, bilet:50, bosh:0,  sotuv:20920, tannarx:-25000 },
+  { yon:"Qaytish · Jidda → Toshkent", sana:"25-iyun", kvota:50, paket:15, bilet:12, bosh:23, sotuv:1780,  tannarx:-8925 },
+  { yon:"Qaytish · Jidda → Toshkent", sana:"2-iyul",  kvota:50, paket:42, bilet:8,  bosh:0,  sotuv:1780,  tannarx:-2040 },
+  { yon:"Qaytish · Jidda → Toshkent", sana:"9-iyul",  kvota:50, paket:46, bilet:4,  bosh:0,  sotuv:880,   tannarx:-1020 }
+];
+
+/* sotilmay bo'sh ketgan o'rindiqlar zarari — PAKET_LEGS.tannarx ichida
+   (25-iyun qaytish: 23 o'rindiq). O'rtacha bilet tannarxini hisoblashda ayriladi. */
+const SP_KUYGAN_ZARAR = 5865;
+
+const spState = { perPax: true };
+
+function spGP(r){ return r.sales + r.cost + r.extra; }
+function spBPL(r){ return r.bs + r.bc; }
+function spPF(r){ return spGP(r) + spBPL(r); }
+
+const PT = PAKET_REYS.reduce(function(a, r){
+  ["pax","sales","cost","extra","bs","bc"].forEach(function(k){ a[k] += r[k]; });
+  return a;
+}, {pax:0, sales:0, cost:0, extra:0, bs:0, bc:0});
+PT.gp = PT.sales + PT.cost + PT.extra;
+PT.bpl = PT.bs + PT.bc;
+PT.pf = PT.gp + PT.bpl;
+
+function spNum(n){
+  if(!n) return '<span class="sp-z">—</span>';
+  const v = fmt(Math.abs(Math.round(n)));
+  return n < 0 ? '<span class="neg">(' + v + ')</span>' : v;
+}
+function spPct(x){
+  const s = (x * 100).toFixed(1).replace(".", ",") + "%";
+  return x < 0 ? '<span class="neg">' + s + '</span>' : s;
+}
+function spPerPax(v, pax){
+  const p = v / pax;
+  return '<span class="sp-pp num">' + (p < 0 ? "−" : "") + fmt(Math.abs(p)) + " / pax</span>";
+}
+
+const SP_COLS = [{h:"Jami", r:PT, tot:true}].concat(
+  PAKET_REYS.map(function(r){ return {h:r.sana, r:r}; })
+);
+
+const SP_ROWS = [
+  { l:"Pax",                f:function(r){ return r.pax; },                raw:true },
+  { l:"Sotuv",              f:function(r){ return r.sales; },              pp:true },
+  { l:"Tannarx",            f:function(r){ return r.cost; },               pp:true },
+  { l:"Qo'shimcha xarajat", f:function(r){ return r.extra; },              pp:true, em:"avtobus, poyezd" },
+  { l:"Yalpi foyda",        f:function(r){ return spGP(r); },              pp:true, cls:"sp-sum" },
+  { l:"Yalpi marja",        f:function(r){ return spGP(r)/r.sales; },      cls:"sp-marj", isPct:true },
+  { cls:"sp-spacer" },
+  { l:"Biletlar sotuvi",    f:function(r){ return r.bs; } },
+  { l:"Biletlar tannarxi",  f:function(r){ return r.bc; } },
+  { l:"Opexgacha foyda",    f:function(r){ return spPF(r); },              pp:true, cls:"sp-big" },
+  { l:"Marja",              f:function(r){ return spPF(r)/r.sales; },      cls:"sp-marj2", isPct:true }
+];
+
+function renderPakSPL(){
+  const tbl = document.getElementById("spPl");
+  tbl.querySelector("thead").innerHTML =
+    "<tr><th></th>" + SP_COLS.map(function(c){ return "<th>" + c.h + "</th>"; }).join("") + "</tr>";
+
+  tbl.querySelector("tbody").innerHTML = SP_ROWS.map(function(row){
+    if(row.cls === "sp-spacer")
+      return '<tr class="sp-spacer"><td colspan="' + (SP_COLS.length + 1) + '"></td></tr>';
+
+    const cells = SP_COLS.map(function(c){
+      const v = row.f(c.r);
+      let inner;
+      if(row.isPct)    inner = spPct(v);
+      else if(row.raw) inner = fmt(v);
+      else             inner = spNum(v);
+      if(spState.perPax && row.pp && v) inner += spPerPax(v, c.r.pax);
+      return '<td class="num' + (c.tot ? " sp-tot" : "") + '">' + inner + "</td>";
+    }).join("");
+
+    const em = row.em ? ' <em>' + row.em + "</em>" : "";
+    return '<tr class="' + (row.cls || "") + '">' +
+           '<td class="sp-lbl">' + row.l + em + "</td>" + cells + "</tr>";
+  }).join("");
+}
+
+function renderPakHero(){
+  document.getElementById("pakHero").innerHTML =
+    '<div class="t">Opexgacha foyda · 18-iyun — 11-iyul 2026</div>' +
+    '<div class="big num">' + fmtUSD(PT.pf) + ' <small>' + PAKET_REYS.length + ' reys · ' + PT.pax + ' pax</small></div>' +
+    '<div class="delta num">marja ' + (PT.pf/PT.sales*100).toFixed(1).replace(".", ",") + '% · 1 pax uchun ' + fmtUSD(PT.pf/PT.pax) + '</div>' +
+    '<div class="why">Paketlardan ' + fmtUSD(PT.gp) + ' yalpi foyda olindi, biletlar esa ' + fmtUSD(-PT.bpl) +
+      ' zarar keltirdi — yalpi foydaning ' + Math.round(-PT.bpl/PT.gp*100) + '% i yo\'qoldi.</div>' +
+    '<div class="mini num">' +
+      '<div><span>Sotuv</span><b>' + fmtUSD(PT.sales) + '</b>' +
+        '<div class="split num">1 pax: ' + fmtUSD(PT.sales/PT.pax) + '</div></div>' +
+      '<div><span>Yalpi foyda</span><b class="pos">' + fmtUSD(PT.gp) + '</b>' +
+        '<div class="split num">marja ' + (PT.gp/PT.sales*100).toFixed(1).replace(".", ",") + '%</div></div>' +
+      '<div><span>Biletlar</span><b class="neg">−' + fmtUSD(-PT.bpl) + '</b>' +
+        '<div class="split num">94 sotilgan · 23 bo\'sh</div></div>' +
+    '</div>';
+}
+
+function renderPakBilet(){
+  const tb = document.querySelector("#spBt tbody");
+  const t = {kvota:0, paket:0, bilet:0, bosh:0, sotuv:0, tannarx:0};
+  let cur = "", html = "";
+
+  PAKET_LEGS.forEach(function(l){
+    if(l.yon !== cur){ cur = l.yon; html += '<tr class="sp-grp"><td colspan="9">' + l.yon + "</td></tr>"; }
+    Object.keys(t).forEach(function(k){ t[k] += l[k]; });
+
+    const pl = l.sotuv + l.tannarx;
+    const w = function(x){ return (x / l.kvota * 100).toFixed(1) + "%"; };
+    html += "<tr>" +
+      '<td class="sp-name">' + l.sana + "</td>" +
+      '<td class="num" style="color:var(--muted)">' + l.kvota + "</td>" +
+      '<td class="num">' + l.paket + "</td>" +
+      '<td class="num">' + (l.bilet || '<span class="sp-z">—</span>') + "</td>" +
+      '<td class="num">' + (l.bosh ? '<span class="neg">' + l.bosh + "</span>" : '<span class="sp-z">—</span>') + "</td>" +
+      '<td><span class="sp-fill">' +
+        '<i class="a" style="width:' + w(l.paket) + '"></i>' +
+        (l.bilet ? '<i class="b" style="width:' + w(l.bilet) + '"></i>' : "") +
+        (l.bosh  ? '<i class="c" style="width:' + w(l.bosh)  + '"></i>' : "") +
+      "</span></td>" +
+      '<td class="num">' + spNum(l.sotuv) + "</td>" +
+      '<td class="num">' + spNum(l.tannarx) + "</td>" +
+      '<td class="num" style="font-weight:700">' +
+        (pl ? '<span class="' + (pl < 0 ? "neg" : "pos") + '">' + signUSD(pl) + "</span>" : '<span class="sp-z">—</span>') +
+      "</td></tr>";
+  });
+
+  const pl = t.sotuv + t.tannarx;
+  html += '<tr class="sp-t">' +
+    "<td>Jami</td>" +
+    '<td class="num">' + t.kvota + "</td>" +
+    '<td class="num">' + t.paket + "</td>" +
+    '<td class="num">' + t.bilet + "</td>" +
+    '<td class="num neg">' + t.bosh + "</td>" +
+    '<td><span class="sp-fill">' +
+      '<i class="a" style="width:' + (t.paket/t.kvota*100).toFixed(1) + '%"></i>' +
+      '<i class="b" style="width:' + (t.bilet/t.kvota*100).toFixed(1) + '%"></i>' +
+      '<i class="c" style="width:' + (t.bosh /t.kvota*100).toFixed(1) + '%"></i>' +
+    "</span></td>" +
+    '<td class="num">' + spNum(t.sotuv) + "</td>" +
+    '<td class="num">' + spNum(t.tannarx) + "</td>" +
+    '<td class="num neg">' + signUSD(pl) + "</td></tr>";
+
+  tb.innerHTML = html;
+
+  document.getElementById("spBiletAmt").textContent = signUSD(pl);
+  const avgS = Math.round(t.sotuv / t.bilet);
+  const avgC = Math.round((Math.abs(t.tannarx) - SP_KUYGAN_ZARAR) / t.bilet);
+  document.getElementById("spBiletNote").innerHTML =
+    '1 bilet o\'rtacha <b>' + fmtUSD(avgS) + '</b> ga sotildi, tannarxi <b>' + fmtUSD(avgC) +
+    '</b> · har biletda <b class="neg">−' + fmtUSD(avgC - avgS) + "</b>";
+}
+
+function renderPakList(){
+  const tb = document.querySelector("#spPk tbody");
+  let html = "";
+
+  PAKET_REYS.forEach(function(r){
+    const g = r.sales + r.cost;
+    html += '<tr class="sp-grp">' +
+      "<td>" + r.sana + "</td>" +
+      '<td class="num">' + r.pax + "</td>" +
+      '<td class="num">' + spNum(r.sales) + "</td>" +
+      '<td class="num">' + spNum(r.cost) + "</td>" +
+      '<td class="num">' + spNum(g) + "</td>" +
+      '<td class="num">' + spPct(g / r.sales) + "</td></tr>";
+
+    r.paketlar.slice().sort(function(a, b){
+      return (b[2]+b[3])/b[2] - (a[2]+a[3])/a[2];
+    }).forEach(function(p){
+      const gg = p[2] + p[3];
+      html += "<tr>" +
+        '<td class="sp-child">' + p[0] + "</td>" +
+        '<td class="num" style="color:var(--muted)">' + p[1] + "</td>" +
+        '<td class="num">' + spNum(p[2]) + "</td>" +
+        '<td class="num">' + spNum(p[3]) + "</td>" +
+        '<td class="num">' + spNum(gg) + "</td>" +
+        '<td class="num">' + spPct(gg / p[2]) + "</td></tr>";
+    });
+  });
+
+  const g = PT.sales + PT.cost;
+  html += '<tr class="sp-t"><td>Jami</td>' +
+    '<td class="num">' + PT.pax + "</td>" +
+    '<td class="num">' + spNum(PT.sales) + "</td>" +
+    '<td class="num">' + spNum(PT.cost) + "</td>" +
+    '<td class="num">' + spNum(g) + "</td>" +
+    '<td class="num">' + spPct(g / PT.sales) + "</td></tr>";
+
+  tb.innerHTML = html;
+}
+
+function renderPaketlar(){
+  renderPakHero();
+  renderPakSPL();
+  renderPakBilet();
+  renderPakList();
+}
+
+document.getElementById("spPPon").addEventListener("click", function(){
+  spState.perPax = true;
+  this.setAttribute("aria-pressed", "true");
+  document.getElementById("spPPoff").setAttribute("aria-pressed", "false");
+  renderPakSPL();
+});
+document.getElementById("spPPoff").addEventListener("click", function(){
+  spState.perPax = false;
+  this.setAttribute("aria-pressed", "true");
+  document.getElementById("spPPon").setAttribute("aria-pressed", "false");
+  renderPakSPL();
+});
+
+renderPaketlar();
+
 /* ============ BO'LIMLAR ORASIDA NAVIGATSIYA ============ */
 function showView(name){
   const home = document.getElementById("homeView");
   const cf = document.getElementById("cashflowView");
   const cr = document.getElementById("creditorsView");
+  const pk = document.getElementById("paketlarView");
   home.style.display = (name === "home") ? "flex" : "none";
   cf.style.display   = (name === "cashflow") ? "block" : "none";
   cr.style.display   = (name === "creditors") ? "block" : "none";
+  pk.style.display   = (name === "paketlar") ? "block" : "none";
   if(name === "home") fillHomeMeta();
   if(name === "creditors") setTimeout(tlScrollToToday, 0);
   window.scrollTo(0, 0);
@@ -1826,6 +2213,10 @@ function fillHomeMeta(){
   else credLine2 = '<div class="m2">to\'lovlar yo\'q</div>';
   document.getElementById("hcCredMeta").innerHTML =
     '<div class="m1 num">' + fmtUSD(CT.left) + '</div>' + credLine2;
+
+  document.getElementById("hcPakMeta").innerHTML =
+    '<div class="m1 num ' + (PT.pf >= 0 ? "pos" : "neg") + '">' + fmtUSD(PT.pf) + '</div>' +
+    '<div class="m2 num">marja ' + (PT.pf/PT.sales*100).toFixed(1).replace(".", ",") + '%</div>';
 }
 
 document.querySelectorAll("[data-go]").forEach(b=>{
@@ -1837,7 +2228,7 @@ document.querySelectorAll("[data-back]").forEach(b=>{
 
 function routeFromHash(){
   const h = (location.hash || "").replace("#","");
-  if(h === "cashflow" || h === "creditors") showView(h);
+  if(h === "cashflow" || h === "creditors" || h === "paketlar") showView(h);
   else showView("home");
 }
 window.addEventListener("hashchange", routeFromHash);
