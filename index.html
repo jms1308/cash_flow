@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safar Travel — Kunlik pul oqimi</title>
 <meta property="og:title" content="Safar Travel — Kunlik pul oqimi">
-<meta property="og:description" content="9-iyul: jami pul $143 096 · sof o'zgarish +$8 672 · sotuvdan +$22 420 · chiqim −$8 301. Sotuv va qarz ajratmasi, kunlik kirim-chiqim, kassa qoldiqlari va trend.">
+<meta property="og:description" content="10-iyul: jami pul $139 196 · sof o'zgarish −$3 900. Kuchli inkassatsiya kuni (so'm +126,77 mln), lekin dollar chiqimi yuqori. Ziraat/Trastbank hisoblarida manbasiz o'sish belgilandi. Kunlik kirim-chiqim, kassa qoldiqlari va trend.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B3D33">
 <meta name="twitter:card" content="summary">
@@ -1144,6 +1144,72 @@ const DAYS = [
         { level:"info", text:"Solijonov Abdulaziz (2 983 000) va Jakbaraliyev Zubayr (2 415 000): pul mijoz sifatida kirib, o'sha kuni xuddi shu summa 'ish haqi' sifatida chiqqan — operatsiya mohiyati so'raladi." }
       ]
     }
+  },
+  {
+    date: "2026-07-10",
+    balances: {
+      UZS: [
+        ["Asosiy kassa UZS", 223914000],
+        ["Trastbank h/r (…893002)", 148972440.86],
+        ["Ziraat Bank h/r (…893001)", 41371491.79],
+        ["IPAK UZCARD (Xayrulloh)", 6249559],
+        ["Oyliklar uchun bank", 1232000],
+        ["Kassa farq", 15000]
+      ],
+      USD: [
+        ["Asosiy kassa $", 30042],
+        ["2339 (Boronov Shoxruz) Mastercard Ipak", 5112.21],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 4521.15],
+        ["0117 Xayrulloh O'tkurov VISA", 2445.33],
+        ["Korrektirovka USD", 873.48],
+        ["6490 Mirusmon Shavkatov", 55]
+      ],
+      SAR: [
+        ["Helaby Makka", 128350],
+        ["Madina Abdurashid SAR", 86468.73],
+        ["Catering SAR", 15000]
+      ]
+    },
+    flows: {
+      transactions: [
+        { doc:"DDS",         dir:"in", cat:"customer", who:"Mijozlardan tushum (Asosiy kassa) — yig'ma", acc:"Asosiy kassa UZS", cur:"UZS", amt:152016000 },
+        { doc:"SFRT-005689", dir:"in", cat:"customer", who:"Abdusamatov Mansur",       acc:"IPAK UZCARD", cur:"UZS", amt:6000000 },
+        { doc:"DDS",         dir:"in", cat:"customer", who:"Mijozlardan tushum (Asosiy kassa $) — yig'ma", acc:"Asosiy kassa $", cur:"USD", amt:4309 },
+        { doc:"SFRT-005714", dir:"in", cat:"customer", who:"Qurbonov Abduqaxxor",      acc:"0117 VISA", cur:"USD", amt:430 },
+        { doc:"SFRT-005715", dir:"in", cat:"customer", who:"Kadirov Khayrullo",        acc:"5055 VISA Kapital", cur:"USD", amt:430 },
+        { doc:"005699/005700", dir:"in", cat:"other", who:"GOLDEN ROWA — yetkazib beruvchidan qaytim", acc:"KSA SAR", cur:"SAR", amt:17032 },
+        { doc:"SFRT-005118", dir:"out", cat:"supplier", who:"ETIHAD (aviabilet)",      acc:"Asosiy kassa $", cur:"USD", amt:20250 },
+        { doc:"DDS",         dir:"out", cat:"salary",   who:"Ish haqi (Asosiy kassa $) — Jamshid Muslimov va b.", acc:"Asosiy kassa $", cur:"USD", amt:2800 },
+        { doc:"005101/108/113", dir:"out", cat:"refund", who:"Mijozga qaytarish — Bayzoev, Xudaykulov, Elmurodova", acc:"Asosiy kassa $", cur:"USD", amt:1548 },
+        { doc:"005104/005096", dir:"out", cat:"salary", who:"Ish haqi — Tagaev Ural, Atamatova", acc:"Korrektirovka USD", cur:"USD", amt:500 },
+        { doc:"DDS",         dir:"out", cat:"salary",   who:"Ish haqi (Asosiy kassa) — Husnibonu va b.", acc:"Asosiy kassa UZS", cur:"UZS", amt:17913000 },
+        { doc:"SFRT-005091", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:600000 },
+        { doc:"SFRT-005112", dir:"out", cat:"refund",   who:"Sadikov Zoir (qaytarish)", acc:"Asosiy kassa UZS", cur:"UZS", amt:480000 },
+        { doc:"DDS",         dir:"out", cat:"office",   who:"Transport xarajatlari",   acc:"Asosiy kassa UZS", cur:"UZS", amt:68000 },
+        { doc:"005097/005109", dir:"out", cat:"supplier", who:"Mir print",             acc:"IPAK UZCARD", cur:"UZS", amt:1400425 },
+        { doc:"SFRT-005098", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:1065000 },
+        { doc:"SFRT-005123", dir:"out", cat:"salary",   who:"Rasulov Muhammad",        acc:"IPAK UZCARD", cur:"UZS", amt:475000 },
+        { doc:"SFRT-005124", dir:"out", cat:"bank",     who:"Bank komissiyasi",        acc:"IPAK UZCARD", cur:"UZS", amt:7988 },
+        { doc:"SFRT-005111", dir:"out", cat:"bank",     who:"Bank komissiyasi",        acc:"Oyliklar uchun bank", cur:"UZS", amt:31655 },
+        { doc:"SFRT-005109", dir:"out", cat:"supplier", who:"ACCOR GROUP (mehmonxona)", acc:"KSA SAR", cur:"SAR", amt:5192 },
+        { doc:"SFRT-005110", dir:"out", cat:"supplier", who:"ADDRESS",                 acc:"KSA SAR", cur:"SAR", amt:11840 }
+      ],
+      transfers: [
+        { doc:"005712/005713/005116", desc:"Nodirbek aka (Azizjon) — UZ↔KSA o'zaro o'tkazma: Toshkentda $20 000 berildi, KSA da 75 000 SAR olindi (Helaby +37 500, Madina +37 500). O'zaro deyarli teng — kirim/chiqimga kirmaydi.", cur:"USD", amt:20000 },
+        { doc:"DDS", desc:"Kassalararo o'tkazmalar (Asosiy kassa ↔ IPAK ↔ bank hisoblari) — sof ≈10,3 mln so'm chiqim", cur:"UZS", amt:10333037 },
+        { doc:"DDS", desc:"Konvertatsiya: ≈10 333 037 so'm → $856 (2339 +$5 100, Asosiy $ +$610, Korrektirovka +$500, 0117 −$5 300 — kurs ≈12 072)", cur:"USD", amt:856 }
+      ],
+      notes: [
+        { level:"warn", text:"YANGI HISOB: 'Ziraat Bank' h/r da 41 371 492 so'm paydo bo'ldi (kecha yo'q edi), DDS hisobotida bu hisob bo'yicha harakat ko'rsatilmagan. Trastbank ham DDS siz +17 616 194 so'm o'sdi. Jami ≈58,99 mln so'm (≈$4 875) manbasiz — Ziyorat jamg'armasidan operatsion hisobga ko'chirildimi yoki zayommi? So'raladi. (Diqqat: 'Ziraat Bank' ≠ 'Ziyorat jamg'armasi' depoziti.)" },
+        { level:"warn", text:"Oyliklar uchun bank: bank komissiyasidan (31 655) tashqari yana 1 053 360 so'm DDS siz kamaydi. Bu 7/9 dagi (−179 550) muammoning davomi — Oyliklar kartasi izohsiz kamayib bormoqda. So'raladi." },
+        { level:"warn", text:"Katta o'tkazilmagan mijoz hujjatlari kassaga tushmagan: DJURAYEV FARXAD ≈100 mln so'm (4 hujjat: 12,91M + 37,475M + 24,985M + 24,925M), MAMATQULOV BAXTIYOR ≈29,84 mln (23,78M + 6,06M), IBROXIM TOSHPULATOV 21,36 mln. DDS faqat 152 mln so'm tushum ko'rsatadi — qaysi hujjatlar haqiqatda o'tkazilganini tasdiqlang." },
+        { level:"warn", text:"IBROXIM TOSHPULATOV 21 360 000 so'm (SFRT-005682) hujjatda 'Asosiy kassa $' hisobiga so'mda yozilgan — valyuta/hisob nomuvofiq, xato yoki noaniq. Tekshirilsin." },
+        { level:"info", text:"Tajimuratova Husnibonu ≈14,59 mln so'm mijoz sifatida kirib, o'sha kuni xuddi shu summa 'ish haqi' sifatida chiqqan — 7/9 dagi Solijonov/Jakbaraliyev pattern takrorlanmoqda. Operatsiya mohiyati so'raladi." },
+        { level:"info", text:"Nodirbek aka (Azizjon) orqali UZ↔KSA o'zaro o'tkazma: Toshkentda $20 000 berildi, KSA da 75 000 SAR olindi. O'zaro deyarli teng bo'lgani uchun kirim-chiqimga kiritilmadi — 'o'zaro o'tkazmalar' bo'limiga yozildi." },
+        { level:"info", text:"GOLDEN ROWA yetkazib beruvchidan 17 032 SAR qaytim keldi va shu kuni ACCOR (5 192) + ADDRESS (11 840) ga to'landi. Bu 7/8 dagi yo'qolgan GOLDEN ROWA 500 000 SAR bilan bog'liqmi? So'raladi." },
+        { level:"info", text:"Kuchli inkassatsiya kuni: Asosiy kassa so'm 97,14 mln dan 223,91 mln ga (+126,77 mln) ko'tarildi. Lekin dollar hisoblaridan $39 074 chiqqani (ETIHAD $20 250 + Nodirbek $20 000) sabab, umumiy pul biroz −$3 900 kamaydi." }
+      ]
+    }
   }
 ];
 
@@ -1311,7 +1377,9 @@ function flowsSummary(day){
     .sort((a,b)=>b.ekv-a.ekv);
   return { inTotal:inTotal, outTotal:outTotal, net:inTotal-outTotal,
            inN:inN, outN:outN, inRows:inRows, cats:cats,
-           inCustomer:inCustomer, inCredit:inCredit, outCredit:outCredit,
+           inCustomer:inCustomer, inCredit:inCredit,
+           inOther: inTotal - inCustomer - inCredit,
+           outCredit:outCredit,
            creditWho: creditTop ? creditTop.who.replace(/\s*\(kreditor\)\s*/,"") : null };
 }
 
@@ -1394,8 +1462,12 @@ function render(){
   let heroBottom;
   if(fs){
     const realNet = prev ? (tot.total - prev.total) : fs.net;
-    const splitHtml = fs.inCredit > 0
-      ? '<div class="split num">sotuv ' + fmtUSD(fs.inCustomer) + ' · qarz ' + fmtUSD(fs.inCredit) + '</div>'
+    let splitParts = [];
+    if(fs.inCustomer > 0) splitParts.push("sotuv " + fmtUSD(fs.inCustomer));
+    if(fs.inCredit > 0)   splitParts.push("qarz " + fmtUSD(fs.inCredit));
+    if(fs.inOther > 0)    splitParts.push("boshqa " + fmtUSD(fs.inOther));
+    const splitHtml = (fs.inCredit > 0 || fs.inOther > 0)
+      ? '<div class="split num">' + splitParts.join(" · ") + '</div>'
       : '';
     const outSplitHtml = fs.outCredit > 0
       ? '<div class="split num">shundan qarzga ' + fmtUSD(fs.outCredit) + '</div>'
@@ -1433,8 +1505,8 @@ function render(){
     document.getElementById("inAmt").textContent = "+" + fmtUSD(fs.inTotal);
     const uzsPart = fs.inRows.filter(r=>r.cur === "UZS").reduce((s,r)=>s+r.ekv,0);
     let subTxt = plural(fs.inN, "to'lov");
-    if(fs.inCredit > 0){
-      subTxt += " · guruhni ochib ismlarni ko'rish mumkin";
+    if(fs.inCredit > 0 || fs.inOther > 0){
+      subTxt += " · guruhni ochib tafsilotni ko'rish mumkin";
     } else {
       subTxt += " · mijozlardan";
       if(uzsPart > 0 && uzsPart < fs.inTotal) subTxt += " · shundan so'mda ≈ " + fmtUSD(uzsPart);
@@ -1456,17 +1528,20 @@ function render(){
         '<div class="bar"><i style="width:' + share.toFixed(1) + '%;background:' + color + '"></i></div>' +
         '</summary><div class="kids">' + rows.map(inRowHtml).join("") + '</div></details>';
     }
-    const saleRows = fs.inRows.filter(r=>r.cat !== "credit");
-    const debtRows = fs.inRows.filter(r=>r.cat === "credit");
+    const custRows   = fs.inRows.filter(r=>r.cat === "customer");
+    const creditRows = fs.inRows.filter(r=>r.cat === "credit");
+    const otherRows  = fs.inRows.filter(r=>r.cat !== "customer" && r.cat !== "credit");
     let html = "";
-    if(debtRows.length){
-      const saleShare = fs.inTotal ? fs.inCustomer/fs.inTotal*100 : 0;
-      const debtShare = fs.inTotal ? fs.inCredit/fs.inTotal*100 : 0;
-      if(saleRows.length) html += inGroupHtml("Sotuvdan", CATS.customer.color, fs.inCustomer, saleShare, saleRows, false);
-      html += inGroupHtml("Qarzdan", CATS.credit.color, fs.inCredit, debtShare, debtRows, false);
+    if(creditRows.length || otherRows.length){
+      const custShare  = fs.inTotal ? fs.inCustomer/fs.inTotal*100 : 0;
+      const debtShare  = fs.inTotal ? fs.inCredit/fs.inTotal*100 : 0;
+      const otherShare = fs.inTotal ? fs.inOther/fs.inTotal*100 : 0;
+      if(custRows.length)   html += inGroupHtml("Sotuvdan", CATS.customer.color, fs.inCustomer, custShare, custRows, false);
+      if(creditRows.length) html += inGroupHtml("Qarzdan", CATS.credit.color, fs.inCredit, debtShare, creditRows, false);
+      if(otherRows.length)  html += inGroupHtml("Boshqa tushumlar", CATS.other.color, fs.inOther, otherShare, otherRows, false);
     } else {
-      // qarz yo'q — bitta ochiladigan "Sotuvdan" guruhi
-      html = inGroupHtml("Sotuvdan", CATS.customer.color, fs.inCustomer, 100, saleRows, false);
+      // faqat mijozlardan — bitta "Sotuvdan" guruhi
+      html = inGroupHtml("Sotuvdan", CATS.customer.color, fs.inCustomer, 100, custRows, false);
     }
     document.getElementById("inGroups").innerHTML = html;
   } else {
