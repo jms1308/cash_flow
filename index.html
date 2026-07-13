@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safar Travel — Kunlik pul oqimi</title>
 <meta property="og:title" content="Safar Travel — Kunlik pul oqimi">
-<meta property="og:description" content="10-iyul: jami pul $139 196 · sof o'zgarish −$3 900. Kuchli inkassatsiya kuni (so'm +126,77 mln), lekin dollar chiqimi yuqori. Ziraat/Trastbank hisoblarida manbasiz o'sish belgilandi. Kunlik kirim-chiqim, kassa qoldiqlari va trend.">
+<meta property="og:description" content="12-iyul: jami pul $122 258 · sof o'zgarish −$23 220. Sotuvdan $11 310 tushdi, chiqim $34 527. Kunlik kirim-chiqim, kassa qoldiqlari va trend.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B3D33">
 <meta name="twitter:card" content="summary">
@@ -939,6 +939,8 @@ const DAYS = [
         { doc:"SFRT-005597", dir:"in", cat:"customer", who:"Payazov Javohir",        acc:"Asosiy kassa $", cur:"USD", amt:1320 },
         { doc:"SFRT-005609", dir:"in", cat:"customer", who:"Davlatov Xushnudbek",    acc:"5055 VISA Kapital", cur:"USD", amt:1000 },
         { doc:"SFRT-005616", dir:"in", cat:"customer", who:"Toshmetova Dildora",     acc:"Asosiy kassa $", cur:"USD", amt:100 },
+        { doc:"hisoblangan", dir:"in", cat:"estimated", who:"Asosiy kassa UZS qoldiq farqi (hujjat aniqlanmagan)", acc:"Asosiy kassa UZS", cur:"UZS", amt:4179000 },
+        { doc:"hisoblangan", dir:"in", cat:"estimated", who:"Oyliklar banki kirimi (hujjat aniqlanmagan)", acc:"Oyliklar uchun bank", cur:"UZS", amt:2464000 },
         { doc:"SFRT-004974", dir:"out", cat:"credit",    who:"Alisher aka (CEO) — qarz berildi", acc:"Asosiy kassa UZS", cur:"UZS", amt:3000000 },
         { doc:"SFRT-004986", dir:"out", cat:"salary",    who:"Rayhona",                acc:"Asosiy kassa UZS", cur:"UZS", amt:12435000 },
         { doc:"SFRT-004983", dir:"out", cat:"salary",    who:"Munojat Abduakhatova",   acc:"Asosiy kassa UZS", cur:"UZS", amt:8200000 },
@@ -954,7 +956,9 @@ const DAYS = [
         { doc:"SFRT-004992", dir:"out", cat:"salary",    who:"Shahzoda Ismatova",      acc:"Asosiy kassa UZS", cur:"UZS", amt:3000000 },
         { doc:"SFRT-004991", dir:"out", cat:"salary",    who:"Abdulaziz Solijonov",    acc:"Asosiy kassa UZS", cur:"UZS", amt:2500000 },
         { doc:"SFRT-004993", dir:"out", cat:"salary",    who:"Sherzodova Shahzoda",    acc:"Asosiy kassa UZS", cur:"UZS", amt:2500000 },
-        { doc:"SFRT-005015-17", dir:"out", cat:"salary", who:"Berdiyarov Yoqub (3 hujjat)", acc:"Asosiy kassa UZS", cur:"UZS", amt:2410000 },
+        { doc:"SFRT-005015", dir:"out", cat:"salary", who:"Berdiyarov Yoqub",       acc:"Asosiy kassa UZS", cur:"UZS", amt:1170000 },
+        { doc:"SFRT-005016", dir:"out", cat:"salary", who:"Berdiyarov Yoqub",       acc:"Asosiy kassa UZS", cur:"UZS", amt:1170000 },
+        { doc:"SFRT-005017", dir:"out", cat:"salary", who:"Berdiyarov Yoqub",       acc:"Asosiy kassa UZS", cur:"UZS", amt:70000 },
         { doc:"SFRT-004988", dir:"out", cat:"salary",    who:"Zubayr Jakbaraliyev",    acc:"Asosiy kassa UZS", cur:"UZS", amt:2000000 },
         { doc:"SFRT-005018", dir:"out", cat:"salary",    who:"Yurist",                 acc:"IPAK UZCARD", cur:"UZS", amt:2000000 },
         { doc:"SFRT-004976-77", dir:"out", cat:"salary", who:"O'tkurov Anvar",         acc:"Asosiy kassa UZS", cur:"UZS", amt:1690000 },
@@ -972,7 +976,8 @@ const DAYS = [
         { doc:"SFRT-005004", dir:"out", cat:"salary",    who:"Usmon (mobilograf)",     acc:"Asosiy kassa $", cur:"USD", amt:400 },
         { doc:"SFRT-004995", dir:"out", cat:"salary",    who:"Jamshid",                acc:"Asosiy kassa $", cur:"USD", amt:200 },
         { doc:"SFRT-005003", dir:"out", cat:"salary",    who:"Mirzayeva Zuxra",        acc:"Asosiy kassa $", cur:"USD", amt:100 },
-        { doc:"2 hujjat",    dir:"out", cat:"salary",    who:"Muhammadiy",             acc:"Asosiy kassa $", cur:"USD", amt:64 },
+        { doc:"SFRT-005013", dir:"out", cat:"salary",    who:"Muhammadiy",             acc:"Asosiy kassa $", cur:"USD", amt:41 },
+        { doc:"SFRT-005014", dir:"out", cat:"salary",    who:"Muhammadiy",             acc:"Asosiy kassa $", cur:"USD", amt:23 },
         { doc:"SFRT-004981", dir:"out", cat:"supplier",  who:"Restoran TURKIYA",       acc:"Asosiy kassa $", cur:"USD", amt:4500 },
         { doc:"SFRT-004975", dir:"out", cat:"supplier",  who:"KSA E-VISA (onlayn viza)", acc:"2339 Mastercard", cur:"USD", amt:106.31 },
         { doc:"SFRT-005019", dir:"out", cat:"marketing", who:"Reklama va marketing",   acc:"IPAK UZCARD", cur:"UZS", amt:2400000 },
@@ -980,16 +985,22 @@ const DAYS = [
         { doc:"SFRT-005002", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:700000 },
         { doc:"SFRT-005005", dir:"out", cat:"office",    who:"Ofis xarajatlari",       acc:"Asosiy kassa UZS", cur:"UZS", amt:400000 },
         { doc:"SFRT-005021", dir:"out", cat:"bank",      who:"Bank komissiyasi",       acc:"IPAK UZCARD", cur:"UZS", amt:42075 },
+        { doc:"SFRT-005146", dir:"out", cat:"supplier",  who:"KSA tashkiliy xarajatlari", acc:"Helaby Makka", cur:"SAR", amt:300 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"KSA SAR kamayishi (hujjat aniqlanmagan)", acc:"Madina / Helaby", cur:"SAR", amt:8235 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"USD qoldiq farqi (hujjat aniqlanmagan)", acc:"USD kassalar", cur:"USD", amt:546 },
         { doc:"aniqlanmagan", dir:"out", cat:"estimated", who:"Trastbank h/r dan chiqim (hujjat berilmagan)", acc:"Trastbank h/r", cur:"UZS", amt:285396377.12 }
       ],
       transfers: [
-        { doc:"005619/20+3 hujjat", desc:"Nodirbek aka (Azizjon) orqali KSA konversiyasi: $35,000 → 122,715 SAR — Helaby +85,575, Madina +37,140", cur:"USD", amt:35000 },
-        { doc:"DDS", desc:"IPAK UZCARD → Asosiy kassa (ichki o'tkazma)", cur:"UZS", amt:50000000 },
-        { doc:"aniqlanmagan", desc:"Oyliklar uchun bank hisobiga kirim: +2,46 mln so'm", cur:"UZS", amt:2464000 }
+        { doc:"SFRT-005619/005620", desc:"Nodirbek aka (Azizjon) orqali KSA konversiyasi: $35,000 → 131,250 SAR — Madina +45,000, Helaby +86,250", cur:"USD", amt:35000 },
+        { doc:"DDS", desc:"IPAK UZCARD → Asosiy kassa (ichki o'tkazma)", cur:"UZS", amt:50000000 }
       ],
       notes: [
         { level:"warn", text:"7-iyulda ~161 mln so'mlik mijoz hujjatlari kassaga o'tkazilmagan: Usmanov Kamoliddin 70,1 mln (2 hujjat), Jiyanova Robiya 33,1 mln, Xudaykulov Feruzbek 26 mln, Payazov Javohir 15,9 mln, Gafurov Jasur 10 mln, Alimov 6 mln va b." },
-        { level:"warn", text:"Trastbank h/r dan 285,4 mln so'm (≈$23,6k) chiqib ketgan, hujjati berilmagan — \"Hisoblangan\" deb belgilandi. Shuningdek Oyliklar bankiga 2,46 mln kirgan." }
+        { level:"warn", text:"Trastbank h/r dan 285,4 mln so'm (≈$23,6k) chiqib ketgan, hujjati berilmagan — \"Hisoblangan\" deb belgilandi. Shuningdek Oyliklar bankiga 2,46 mln kirgan." },
+        { level:"warn", text:"KSA konversiyasi hujjatlarida 131 250 SAR kirim bor, qoldiq esa sof 122 715 SAR oshgan. 300 SARlik SFRT-005146 topildi; qolgan 8 235 SAR (Madina −7 860, Helaby −375) hujjatsiz, balansdan hisoblandi." },
+        { level:"warn", text:"7-iyul qoldiq tengligini yopish uchun hujjatsiz farqlar balansdan hisoblandi: Asosiy kassa UZS +4 179 000 so'm, Oyliklar banki +2 464 000 so'm va USD kassalar −$546. Manba/oluvchi aniqlashtirilishi kerak." },
+        { level:"warn", text:"Joriy 1C ro'yxatida keyinroq o'tkazilgan, lekin eski 7-iyul DDS/qoldig'ida yo'q hujjatlar bor: KSA E-VISA $1 398,39 (SFRT-005061/005062), Berdiyarov $853 (005068), Ismoilova Gulfina 267 000 so'm (005069). E-VISA balansga 9-iyulda ta'sir qilgani uchun o'sha kunda olindi; qolgan ikkitasi yangilangan DDS/qoldiqsiz qo'shilmadi." },
+        { level:"info", text:"Tekshirish kerak: Berdiyarovning bir xil 1 170 000 so'mlik SFRT-005015 va SFRT-005016 hujjatlari takroriymi; 'Yurist' 2 mln, reklama 2,4 mln, tashkiliy xarajat 1,25 mln va KSA tashkiliy xarajat 300 SAR kimga to'langan?" }
       ]
     }
   },
@@ -1024,7 +1035,7 @@ const DAYS = [
         { doc:"DDS", dir:"in", cat:"customer", who:"Mijozlardan tushumlar (IPAK UZCARD)",  acc:"", cur:"UZS", amt:40239380 },
         { doc:"DDS", dir:"in", cat:"customer", who:"Mijozlardan tushumlar (Asosiy kassa $)", acc:"", cur:"USD", amt:20640 },
         { doc:"SFRT-005657", dir:"in", cat:"customer", who:"Bobur Bilet",             acc:"0117 VISA", cur:"USD", amt:3500 },
-        { doc:"SFRT-005652", dir:"in", cat:"credit",   who:"Bohodir aka CEO (kreditor)", acc:"Asosiy kassa $", cur:"USD", amt:30000 },
+        { doc:"SFRT-005652", dir:"in", cat:"credit",   who:"Islom aka — Isell variant 2", acc:"Asosiy kassa $", cur:"USD", amt:30000 },
         { doc:"SFRT-005042", dir:"out", cat:"credit",    who:"Bohodir aka CEO — qarz qaytarildi", acc:"Asosiy kassa $", cur:"USD", amt:30000 },
         { doc:"SFRT-005057", dir:"out", cat:"supplier",  who:"Baxtiyor aka Nimcha",   acc:"Asosiy kassa $", cur:"USD", amt:9030 },
         { doc:"SFRT-005025", dir:"out", cat:"supplier",  who:"Safar zo'ntik",         acc:"Asosiy kassa $", cur:"USD", amt:2200 },
@@ -1042,29 +1053,30 @@ const DAYS = [
         { doc:"SFRT-005058", dir:"out", cat:"salary",    who:"Ozoda",                 acc:"Asosiy kassa UZS", cur:"UZS", amt:2000000 },
         { doc:"SFRT-005051", dir:"out", cat:"salary",    who:"Dilnoza",               acc:"Asosiy kassa UZS", cur:"UZS", amt:1945000 },
         { doc:"SFRT-005024", dir:"out", cat:"salary",    who:"Azizaxon Azimboyeva",   acc:"Asosiy kassa UZS", cur:"UZS", amt:1300000 },
-        { doc:"SFRT-005039", dir:"out", cat:"salary",    who:"Abdulaziz Solijonov",   acc:"Asosiy kassa UZS", cur:"UZS", amt:980000 },
+        { doc:"SFRT-005039", dir:"out", cat:"salary",    who:"Egamberdiyev Abdulaziz", acc:"Asosiy kassa UZS", cur:"UZS", amt:980000 },
         { doc:"005023/005026/005054", dir:"out", cat:"salary", who:"Matqurbanova / Solijonov / Jamshid", acc:"Asosiy kassa UZS", cur:"UZS", amt:135000 },
         { doc:"SFRT-005048", dir:"out", cat:"salary",    who:"Oyliklar bo'yicha (vedomost)", acc:"Oyliklar uchun bank", cur:"UZS", amt:2464000 },
         { doc:"005049/005050", dir:"out", cat:"salary",  who:"Abduraxmanov Ne'matulloxon", acc:"5055 VISA Kapital", cur:"USD", amt:700 },
-        { doc:"SFRT-005028", dir:"out", cat:"salary",    who:"Sherzodova Shahzoda",   acc:"Asosiy kassa $", cur:"USD", amt:600 },
+        { doc:"SFRT-005028", dir:"out", cat:"salary",    who:"Sherzodova Shirina Shahroz qizi", acc:"Asosiy kassa $", cur:"USD", amt:600 },
         { doc:"SFRT-005055", dir:"out", cat:"salary",    who:"Rasulov Umarbek",       acc:"Asosiy kassa $", cur:"USD", amt:400 },
         { doc:"SFRT-005027", dir:"out", cat:"salary",    who:"Robiya",                acc:"Asosiy kassa $", cur:"USD", amt:371 },
         { doc:"SFRT-005044", dir:"out", cat:"salary",    who:"Shavkatov Usmon",       acc:"Korrektirovka USD", cur:"USD", amt:166 },
         { doc:"SFRT-005043", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:3195000 },
         { doc:"SFRT-005053", dir:"out", cat:"podotchet", who:"Maxamadjonov Moxir (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:200000 },
-        { doc:"DDS",         dir:"out", cat:"office",    who:"Aeroport xarajatlari",  acc:"Asosiy kassa UZS", cur:"UZS", amt:200000 },
         { doc:"SFRT-005047", dir:"out", cat:"bank",      who:"Bank komissiyasi",      acc:"IPAK UZCARD", cur:"UZS", amt:31192 }
       ],
       transfers: [
-        { doc:"DDS", desc:"Asosiy kassa $ ichki o'tkazmalari (kirim 940 / chiqim 12,100)", cur:"USD", amt:12100 },
+        { doc:"DDS", desc:"Asosiy kassa $ ga ichki o'tkazma: +$940", cur:"USD", amt:940 },
         { doc:"DDS", desc:"Asosiy kassa UZS ichki o'tkazmalari (kirim 1,6 mln / chiqim 11,3 mln)", cur:"UZS", amt:11300000 },
         { doc:"DDS", desc:"IPAK UZCARD → boshqa hisoblar (ichki o'tkazma)", cur:"UZS", amt:3600000 },
         { doc:"DDS", desc:"Korrektirovka USD ichki o'tkazmasi", cur:"USD", amt:166 }
       ],
       notes: [
-        { level:"warn", text:"8-iyulda ~365 mln so'mlik mijoz to'lov hujjatlari 1C da o'tkazilmagan (kassaga tushmagan): Faxriddinov 127,3 mln (2 hujjat), Sadikov Zoir 83,8 mln, Ruzibayev/Akbaraliev 52,4 mln, Azimbayeva 37,3 mln, Abubakirov 25 mln va boshqalar. Shu sabab kirim DDS bo'yicha, umumlashtirilgan holda ko'rsatilmoqda." },
-        { level:"info", text:"Bohodir aka CEO'dan $30,000 kirdi va o'sha kuni to'liq qaytarildi — sof ta'siri nol." },
-        { level:"warn", text:"7 ta mijozga qaytarim (vozvrat) qilingan: jami ≈$12,100 — sabablari tekshirilishi kerak." }
+        { level:"warn", text:"Joriy 1C ro'yxatida 8-iyul uchun o'tkazilmagan mijoz hujjatlari jami 374 301 930 so'm + $200. Ular kassaga tushmagan va dashboard kirimiga qo'shilmadi." },
+        { level:"warn", text:"$30 000 SFRT-005652 bilan Islom aka (Isell variant 2)dan kirgan, SFRT-005042 bilan Bohodir aka CEOga chiqqan. Sof ta'sir nol, lekin bu bir shaxsga qaytarim emas — operatsiya mohiyati aniqlashtirilishi kerak." },
+        { level:"warn", text:"7 ta mijozga qaytarim qilingan: jami $12 100 va 400 000 so'm. Sababi aniqlashtirilishi kerak." },
+        { level:"warn", text:"Joriy ro'yxatda keyinroq o'tkazilgan, ammo eski 8-iyul DDS/qoldig'ida ko'rinmagan KSA E-VISA hujjatlari bor: SFRT-005063–005067 jami $4 035,14. Ular balansga 9-iyulda ta'sir qilgani uchun o'sha kunda olindi. UZS bo'yicha joriy o'tkazilgan hujjatlar eski DDSdan 180 000 so'm ko'p; yangilangan DDS/qoldiqsiz qo'shilmadi." },
+        { level:"info", text:"Takrorlarni tekshirish kerak: Toshmetova Dildora 10 717 380 so'm (005638 o'tkazilmagan va 005653 o'tkazilgan), Faxriddinov 63 663 600 so'mdan 2 hujjat (005645/005648), Kadirova Lola $990 dan 2 hujjat (005624/005634). 'Sertifikat uchun' 300 000 so'mni kim to'lagani ham aniqlashtirilsin." }
       ]
     }
   },
@@ -1113,13 +1125,14 @@ const DAYS = [
         { doc:"SFRT-005667", dir:"in", cat:"customer", who:"Shermuxamedova Shaxlo",   acc:"Asosiy kassa $", cur:"USD", amt:900 },
         { doc:"SFRT-005678", dir:"in", cat:"customer", who:"Ravshan Odil",            acc:"0117 VISA", cur:"USD", amt:1440 },
         { doc:"SFRT-005679", dir:"in", cat:"customer", who:"Markaeva Gulara",         acc:"5055 VISA Kapital", cur:"USD", amt:1790 },
-        { doc:"SFRT-005680", dir:"in", cat:"customer", who:"Dauletova Roza",          acc:"5055 VISA Kapital", cur:"USD", amt:500 },
+        { doc:"SFRT-005680", dir:"in", cat:"customer", who:"Dalletova Roza",          acc:"5055 VISA Kapital", cur:"USD", amt:500 },
         { doc:"SFRT-005079", dir:"out", cat:"supplier", who:"Arenda — Toshkent ofis", acc:"Asosiy kassa UZS", cur:"UZS", amt:10900000 },
         { doc:"SFRT-005080", dir:"out", cat:"supplier", who:"Umra kitob",             acc:"Asosiy kassa UZS", cur:"UZS", amt:9720000 },
         { doc:"SFRT-005077", dir:"out", cat:"supplier", who:"Namangan filial",        acc:"Asosiy kassa UZS", cur:"UZS", amt:9000000 },
         { doc:"SFRT-005076", dir:"out", cat:"supplier", who:"ELMA",                   acc:"Asosiy kassa UZS", cur:"UZS", amt:600000 },
         { doc:"SFRT-005078", dir:"out", cat:"supplier", who:"Arenda — Toshkent ofis", acc:"Asosiy kassa $", cur:"USD", amt:2150 },
         { doc:"005083/005084", dir:"out", cat:"supplier", who:"Haramain Train (onlayn servis)", acc:"0117 VISA", cur:"USD", amt:1186.95 },
+        { doc:"SFRT-005061–005067", dir:"out", cat:"supplier", who:"KSA E-VISA — 7 ta backdated hujjat", acc:"2339 Mastercard", cur:"USD", amt:5433.53 },
         { doc:"SFRT-005081", dir:"out", cat:"salary",   who:"Mohinur",                acc:"Asosiy kassa UZS", cur:"UZS", amt:4740000 },
         { doc:"005073/005074", dir:"out", cat:"salary", who:"Yusupov Xurshid",        acc:"Asosiy kassa UZS", cur:"UZS", amt:3650000 },
         { doc:"005072/005090", dir:"out", cat:"salary", who:"Abdulaziz Solijonov",    acc:"Asosiy kassa UZS", cur:"UZS", amt:3028000 },
@@ -1130,17 +1143,20 @@ const DAYS = [
         { doc:"SFRT-005088", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:420000 },
         { doc:"SFRT-005086", dir:"out", cat:"marketing", who:"Reklama va marketing",  acc:"0117 VISA", cur:"USD", amt:265 },
         { doc:"SFRT-005085", dir:"out", cat:"subscription", who:"Abonent to'lovlari", acc:"0117 VISA", cur:"USD", amt:30 },
-        { doc:"SFRT-005089", dir:"out", cat:"bank",     who:"Bank komissiyasi",       acc:"IPAK UZCARD", cur:"UZS", amt:12994 }
+        { doc:"SFRT-005089", dir:"out", cat:"bank",     who:"Bank komissiyasi",       acc:"IPAK UZCARD", cur:"UZS", amt:12994 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"Oyliklar banki qoldiq farqi (hujjat aniqlanmagan)", acc:"Oyliklar uchun bank", cur:"UZS", amt:179550 }
       ],
       transfers: [
         { doc:"DDS", desc:"IPAK UZCARD → Asosiy kassa UZS (ichki o'tkazma)", cur:"UZS", amt:46200000 },
         { doc:"DDS", desc:"Asosiy kassa UZS → boshqa hisob (ichki chiqim)", cur:"UZS", amt:1010000 },
-        { doc:"DDS", desc:"Konvertatsiya (taxmin): 2 210 000 so'm → $184 (Asosiy kassa $ +134, Korrektirovka +150)", cur:"UZS", amt:2210000 }
+        { doc:"DDS", desc:"Valyuta ayirboshlash: 2 210 000 so'm → $184,83 (Asosiy kassa +$34,83, Korrektirovka +$150)", cur:"UZS", amt:2210000 },
+        { doc:"balans", desc:"4211 VISA → 2339 Mastercard ichki ko'chirish: $15,04", cur:"USD", amt:15.04 }
       ],
       notes: [
-        { level:"warn", text:"9-iyulda 2 ta yirik mijoz hujjati 1C da o'tkazilmagan: Ismonov Jasurbek 21 094 600 va Raximov Ikrom 10 640 000 so'm (jami 31,7 mln). O'tkazilmagan hujjatlar yig'indisi ~397 mln so'mga yetdi — kirimga kiritilmadi." },
-        { level:"warn", text:"2339 Boronov kartasi: kecha $5 430,70 edi, bugun $12,21 — kamayish $5 418,49. 7/8 dagi KSA E-VISA to'lovlari ($4 035,14) kech o'tkazilgan bo'lsa ham $1 383,35 farq izohlanmagan. So'raladi." },
-        { level:"warn", text:"Oyliklar uchun bank: −179 550 so'm kamaygan, DDS da harakat yo'q. 4211 Boronov kartasidan ham $15,04 yo'qolgan. So'raladi." },
+        { level:"warn", text:"SFRT-005674 Ismonov Jasurbek 21 094 600 so'm hujjati joriy ro'yxatda qizil/o'chirilgan — kirimga kiritilmadi. SFRT-005676 Raximov Ikrom 10 640 000 so'm hozir o'tkazilgan, lekin eski 9-iyul DDS/qoldig'ida yo'q; yangilangan hisobot kelmaguncha qo'shilmadi." },
+        { level:"info", text:"2339 va 4211 kartalari jami $5 433,53 kamaygan. Bu joriy ro'yxatdagi 7–8-iyul sanali KSA E-VISA hujjatlariga aynan teng; balansga ta'siri 9-iyulda ko'ringani uchun shu kunda xarajatga olindi. 4211dan 2339ga $15,04 ichki ko'chirish hisoblar kesimidagi farqni yopadi." },
+        { level:"warn", text:"9-iyul sanali, keyinroq o'tkazilgan SAR chiqimlari: AL EBAA 3 960 SAR, ACCOR 11 015 SAR va KSA tashkiliy xarajatlari 370 SAR — jami 15 345 SAR. 9-iyul qoldig'iga ta'sir qilmagan; real kamayish 11-iyul qoldig'ida ko'ringani uchun o'sha kunda tasniflandi." },
+        { level:"warn", text:"Oyliklar uchun bank 179 550 so'm DDSsiz kamaygan. Qoldiq tengligi uchun 'Hisoblangan' deb olindi; sababi aniqlashtirilishi kerak." },
         { level:"info", text:"Solijonov Abdulaziz (2 983 000) va Jakbaraliyev Zubayr (2 415 000): pul mijoz sifatida kirib, o'sha kuni xuddi shu summa 'ish haqi' sifatida chiqqan — operatsiya mohiyati so'raladi." }
       ]
     }
@@ -1178,6 +1194,8 @@ const DAYS = [
         { doc:"SFRT-005714", dir:"in", cat:"customer", who:"Qurbonov Abduqaxxor",      acc:"0117 VISA", cur:"USD", amt:430 },
         { doc:"SFRT-005715", dir:"in", cat:"customer", who:"Kadirov Khayrullo",        acc:"5055 VISA Kapital", cur:"USD", amt:430 },
         { doc:"005699/005700", dir:"in", cat:"other", who:"GOLDEN ROWA — yetkazib beruvchidan qaytim", acc:"KSA SAR", cur:"SAR", amt:17032 },
+        { doc:"hisoblangan", dir:"in", cat:"estimated", who:"Ziraat Bank qoldig'i paydo bo'lishi (hujjat aniqlanmagan)", acc:"Ziraat Bank h/r", cur:"UZS", amt:41371491.79 },
+        { doc:"hisoblangan", dir:"in", cat:"estimated", who:"Trastbank qoldiq o'sishi (hujjat aniqlanmagan)", acc:"Trastbank h/r", cur:"UZS", amt:17616193.59 },
         { doc:"SFRT-005118", dir:"out", cat:"supplier", who:"ETIHAD (aviabilet)",      acc:"Asosiy kassa $", cur:"USD", amt:20250 },
         { doc:"DDS",         dir:"out", cat:"salary",   who:"Ish haqi (Asosiy kassa $) — Jamshid Muslimov va b.", acc:"Asosiy kassa $", cur:"USD", amt:2800 },
         { doc:"005101/108/113", dir:"out", cat:"refund", who:"Mijozga qaytarish — Bayzoev, Xudaykulov, Elmurodova", acc:"Asosiy kassa $", cur:"USD", amt:1548 },
@@ -1185,29 +1203,161 @@ const DAYS = [
         { doc:"DDS",         dir:"out", cat:"salary",   who:"Ish haqi (Asosiy kassa) — Husnibonu va b.", acc:"Asosiy kassa UZS", cur:"UZS", amt:17913000 },
         { doc:"SFRT-005091", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:600000 },
         { doc:"SFRT-005112", dir:"out", cat:"refund",   who:"Sadikov Zoir (qaytarish)", acc:"Asosiy kassa UZS", cur:"UZS", amt:480000 },
-        { doc:"DDS",         dir:"out", cat:"office",   who:"Transport xarajatlari",   acc:"Asosiy kassa UZS", cur:"UZS", amt:68000 },
-        { doc:"005097/005109", dir:"out", cat:"supplier", who:"Mir print",             acc:"IPAK UZCARD", cur:"UZS", amt:1400425 },
+        { doc:"SFRT-005094", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (transport avansi)", acc:"Asosiy kassa UZS", cur:"UZS", amt:68000 },
+        { doc:"SFRT-005097/005099", dir:"out", cat:"supplier", who:"Mir Print",         acc:"IPAK UZCARD", cur:"UZS", amt:1390000 },
+        { doc:"SFRT-005160", dir:"out", cat:"bank",     who:"Bank komissiyasi",         acc:"IPAK UZCARD", cur:"UZS", amt:10425 },
         { doc:"SFRT-005098", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:1065000 },
         { doc:"SFRT-005123", dir:"out", cat:"salary",   who:"Rasulov Muhammad",        acc:"IPAK UZCARD", cur:"UZS", amt:475000 },
         { doc:"SFRT-005124", dir:"out", cat:"bank",     who:"Bank komissiyasi",        acc:"IPAK UZCARD", cur:"UZS", amt:7988 },
         { doc:"SFRT-005111", dir:"out", cat:"bank",     who:"Bank komissiyasi",        acc:"Oyliklar uchun bank", cur:"UZS", amt:31655 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"Oyliklar banki qoldiq farqi (hujjat aniqlanmagan)", acc:"Oyliklar uchun bank", cur:"UZS", amt:1053360 },
         { doc:"SFRT-005109", dir:"out", cat:"supplier", who:"ACCOR GROUP (mehmonxona)", acc:"KSA SAR", cur:"SAR", amt:5192 },
         { doc:"SFRT-005110", dir:"out", cat:"supplier", who:"ADDRESS",                 acc:"KSA SAR", cur:"SAR", amt:11840 }
       ],
       transfers: [
         { doc:"005712/005713/005116", desc:"Nodirbek aka (Azizjon) — UZ↔KSA o'zaro o'tkazma: Toshkentda $20 000 berildi, KSA da 75 000 SAR olindi (Helaby +37 500, Madina +37 500). O'zaro deyarli teng — kirim/chiqimga kirmaydi.", cur:"USD", amt:20000 },
         { doc:"DDS", desc:"Kassalararo o'tkazmalar (Asosiy kassa ↔ IPAK ↔ bank hisoblari) — sof ≈10,3 mln so'm chiqim", cur:"UZS", amt:10333037 },
-        { doc:"DDS", desc:"Konvertatsiya: ≈10 333 037 so'm → $856 (2339 +$5 100, Asosiy $ +$610, Korrektirovka +$500, 0117 −$5 300 — kurs ≈12 072)", cur:"USD", amt:856 }
+        { doc:"DDS", desc:"Konvertatsiya: 10 333 037 so'm → $855,17 (2339 +$5 100, Asosiy $ +$555,17, Korrektirovka +$500, 0117 −$5 300 — kurs ≈12 083)", cur:"USD", amt:855.17 }
       ],
       notes: [
-        { level:"warn", text:"YANGI HISOB: 'Ziraat Bank' h/r da 41 371 492 so'm paydo bo'ldi (kecha yo'q edi), DDS hisobotida bu hisob bo'yicha harakat ko'rsatilmagan. Trastbank ham DDS siz +17 616 194 so'm o'sdi. Jami ≈58,99 mln so'm (≈$4 875) manbasiz — Ziyorat jamg'armasidan operatsion hisobga ko'chirildimi yoki zayommi? So'raladi. (Diqqat: 'Ziraat Bank' ≠ 'Ziyorat jamg'armasi' depoziti.)" },
-        { level:"warn", text:"Oyliklar uchun bank: bank komissiyasidan (31 655) tashqari yana 1 053 360 so'm DDS siz kamaydi. Bu 7/9 dagi (−179 550) muammoning davomi — Oyliklar kartasi izohsiz kamayib bormoqda. So'raladi." },
-        { level:"warn", text:"Katta o'tkazilmagan mijoz hujjatlari kassaga tushmagan: DJURAYEV FARXAD ≈100 mln so'm (4 hujjat: 12,91M + 37,475M + 24,985M + 24,925M), MAMATQULOV BAXTIYOR ≈29,84 mln (23,78M + 6,06M), IBROXIM TOSHPULATOV 21,36 mln. DDS faqat 152 mln so'm tushum ko'rsatadi — qaysi hujjatlar haqiqatda o'tkazilganini tasdiqlang." },
-        { level:"warn", text:"IBROXIM TOSHPULATOV 21 360 000 so'm (SFRT-005682) hujjatda 'Asosiy kassa $' hisobiga so'mda yozilgan — valyuta/hisob nomuvofiq, xato yoki noaniq. Tekshirilsin." },
-        { level:"info", text:"Tajimuratova Husnibonu ≈14,59 mln so'm mijoz sifatida kirib, o'sha kuni xuddi shu summa 'ish haqi' sifatida chiqqan — 7/9 dagi Solijonov/Jakbaraliyev pattern takrorlanmoqda. Operatsiya mohiyati so'raladi." },
+        { level:"warn", text:"YANGI HISOB: 'Ziraat Bank' h/r da 41 371 491,79 so'm paydo bo'ldi (kecha yo'q edi), Trastbank ham DDSsiz 17 616 193,59 so'm o'sdi. Jami 58 987 685,38 so'm (≈$4 875) qoldiqdan 'Hisoblangan' deb olindi — Ziyorat jamg'armasidan operatsion hisobga ko'chirildimi yoki zayommi? So'raladi. (Diqqat: 'Ziraat Bank' ≠ 'Ziyorat jamg'armasi' depoziti.)" },
+        { level:"warn", text:"Oyliklar uchun bank: bank komissiyasidan (31 655) tashqari yana 1 053 360 so'm DDSsiz kamaydi. Qoldiq tengligi uchun 'Hisoblangan' deb olindi; bu 9-iyuldagi −179 550 so'm muammoning davomi." },
+        { level:"warn", text:"Joriy 1C ro'yxatidagi o'tkazilmagan/o'chirilgan mijoz hujjatlari: Djurayev Farxad 49 910 000 so'm (005692/005694), Mamatqulov Baxtiyor 23 783 760 so'm (005697), Normurodov Muxriddin 7 500 000 so'm (005701/005702), Beysenbayev Nuribek 1 201 200 so'm (005704) va Bobur Bilet $600 (005695). Jami 82 394 960 so'm + $600 — kirimga kiritilmadi." },
+        { level:"warn", text:"SFRT-005095 FLY ADEAL −$99 000 joriy ro'yxatda qizil/o'chirilgan. Xarajatga kiritilmadi; hujjat rostdan bekor qilinganmi?" },
+        { level:"info", text:"Tajimuratova Husnibonu: 14 393 000 so'm tushum va xuddi 14 393 000 so'm ish haqi chiqimi; qo'shimcha $500 tushum va Husnibonu nomiga $200 chiqim bor. Operatsiya mohiyati so'raladi." },
+        { level:"info", text:"10-iyul sanali SFRT-005127/005128/005129 KSA E-VISA hujjatlari jami $4 808,86 va SFRT-005150/005151 KSA xarajatlari 800 SAR. Ular eski 10-iyul DDS/qoldig'ida yo'q, real kamayish 11-iyul qoldig'ida ko'ringani uchun 11-iyulda tasniflandi." },
         { level:"info", text:"Nodirbek aka (Azizjon) orqali UZ↔KSA o'zaro o'tkazma: Toshkentda $20 000 berildi, KSA da 75 000 SAR olindi. O'zaro deyarli teng bo'lgani uchun kirim-chiqimga kiritilmadi — 'o'zaro o'tkazmalar' bo'limiga yozildi." },
         { level:"info", text:"GOLDEN ROWA yetkazib beruvchidan 17 032 SAR qaytim keldi va shu kuni ACCOR (5 192) + ADDRESS (11 840) ga to'landi. Bu 7/8 dagi yo'qolgan GOLDEN ROWA 500 000 SAR bilan bog'liqmi? So'raladi." },
         { level:"info", text:"Kuchli inkassatsiya kuni: Asosiy kassa so'm 97,14 mln dan 223,91 mln ga (+126,77 mln) ko'tarildi. Lekin dollar hisoblaridan $39 074 chiqqani (ETIHAD $20 250 + Nodirbek $20 000) sabab, umumiy pul biroz −$3 900 kamaydi." }
+      ]
+    }
+  },
+  {
+    date: "2026-07-11",
+    balances: {
+      UZS: [
+        ["Asosiy kassa UZS", 258592000],
+        ["Trastbank h/r (…893002)", 148972440.86],
+        ["Ziraat Bank h/r (…893001)", 41371491.79],
+        ["IPAK UZCARD (Xayrulloh)", 1308778],
+        ["Oyliklar uchun bank", 1232000],
+        ["Kassa farq", 15000]
+      ],
+      USD: [
+        ["Asosiy kassa $", 44942],
+        ["2339 (Boronov Shoxruz) Mastercard Ipak", 303.35],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 4521.15],
+        ["0117 Xayrulloh O'tkurov VISA", 1336.94],
+        ["Korrektirovka USD", 873.48],
+        ["6490 Mirusmon Shavkatov", 55]
+      ],
+      SAR: [
+        ["Helaby Makka", 105405],
+        ["Madina Abdurashid SAR", 90068.73],
+        ["Catering SAR", 15000]
+      ]
+    },
+    flows: {
+      transactions: [
+        { doc:"SFRT-005716", dir:"in", cat:"customer", who:"Rasulova Mayram",        acc:"Asosiy kassa UZS", cur:"UZS", amt:49970000 },
+        { doc:"SFRT-005719", dir:"in", cat:"customer", who:"Toshmurodov Dilmurod",  acc:"Asosiy kassa UZS", cur:"UZS", amt:9600000 },
+        { doc:"SFRT-005721", dir:"in", cat:"customer", who:"Vakhobov Dilmurod",     acc:"Asosiy kassa UZS", cur:"UZS", amt:600000 },
+        { doc:"SFRT-005726", dir:"in", cat:"customer", who:"Bekmirzo Zulayxo",      acc:"Asosiy kassa UZS", cur:"UZS", amt:830000 },
+        { doc:"SFRT-005649", dir:"in", cat:"customer", who:"Toshmurodov Dilmurod",  acc:"Asosiy kassa $", cur:"USD", amt:1600 },
+        { doc:"SFRT-005718", dir:"in", cat:"customer", who:"Toshmurodov Dilmurod",  acc:"Asosiy kassa $", cur:"USD", amt:100 },
+        { doc:"SFRT-005720", dir:"in", cat:"customer", who:"Vakhobov Dilmurod",     acc:"Asosiy kassa $", cur:"USD", amt:4900 },
+        { doc:"SFRT-005722", dir:"in", cat:"customer", who:"Durdiyeva Barno",       acc:"Asosiy kassa $", cur:"USD", amt:990 },
+        { doc:"SFRT-005723", dir:"in", cat:"customer", who:"Boronova Mohinabonu",   acc:"Asosiy kassa $", cur:"USD", amt:990 },
+        { doc:"SFRT-005724", dir:"in", cat:"customer", who:"Mijoz tushumi (1C: turism)", acc:"Asosiy kassa $", cur:"USD", amt:1200 },
+        { doc:"SFRT-005727", dir:"in", cat:"customer", who:"Saidakramov Muxammadvali", acc:"Asosiy kassa $", cur:"USD", amt:5900 },
+        { doc:"SFRT-005728", dir:"in", cat:"customer", who:"Usmanov Aziz",           acc:"Asosiy kassa $", cur:"USD", amt:1150 },
+        { doc:"DDS",         dir:"in", cat:"salary",   who:"Ish haqi bo'yicha qaytim", acc:"Asosiy kassa $", cur:"USD", amt:100 },
+        { doc:"SFRT-005144", dir:"out", cat:"supplier", who:"Javohir",                 acc:"Asosiy kassa UZS", cur:"UZS", amt:12500000 },
+        { doc:"DDS",         dir:"out", cat:"salary",   who:"Ish haqi — yig'ma",       acc:"Asosiy kassa UZS", cur:"UZS", amt:7180000 },
+        { doc:"SFRT-005133", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:1000000 },
+        { doc:"SFRT-005135", dir:"out", cat:"subscription", who:"Abonent to'lovlari", acc:"IPAK UZCARD", cur:"UZS", amt:240000 },
+        { doc:"SFRT-005136", dir:"out", cat:"supplier", who:"O'zbekiston Musulmonlari Idorasi", acc:"IPAK UZCARD", cur:"UZS", amt:1300000 },
+        { doc:"SFRT-005137", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:3364000 },
+        { doc:"SFRT-005138", dir:"out", cat:"bank", who:"Bank komissiyasi", acc:"IPAK UZCARD", cur:"UZS", amt:36781 },
+        { doc:"SFRT-005130", dir:"out", cat:"supplier", who:"Qanot Air", acc:"0117 VISA", cur:"USD", amt:430 },
+        { doc:"SFRT-005139", dir:"out", cat:"office", who:"KSA tashkiliy xarajatlari", acc:"0117 VISA", cur:"USD", amt:659.36 },
+        { doc:"SFRT-005125", dir:"out", cat:"subscription", who:"Abonent to'lovlari", acc:"0117 VISA", cur:"USD", amt:19.03 },
+        { doc:"SFRT-005142", dir:"out", cat:"salary", who:"Abbasova Vasila", acc:"Asosiy kassa $", cur:"USD", amt:1500 },
+        { doc:"SFRT-005134", dir:"out", cat:"salary", who:"Xasanov Abdurahmon", acc:"Asosiy kassa $", cur:"USD", amt:1000 },
+        { doc:"SFRT-005127", dir:"out", cat:"supplier", who:"KSA E-VISA (10-iyul sanali, kech aks etgan)", acc:"2339 Mastercard", cur:"USD", amt:109.30 },
+        { doc:"SFRT-005128", dir:"out", cat:"supplier", who:"KSA E-VISA (10-iyul sanali, kech aks etgan)", acc:"2339 Mastercard", cur:"USD", amt:2732.34 },
+        { doc:"SFRT-005129", dir:"out", cat:"supplier", who:"KSA E-VISA (10-iyul sanali, kech aks etgan)", acc:"2339 Mastercard", cur:"USD", amt:1967.22 },
+        { doc:"SFRT-005147/005148/005149", dir:"out", cat:"supplier", who:"AL EBAA / ACCOR / KSA tashkiliy xarajatlari", acc:"Helaby Makka", cur:"SAR", amt:15345 },
+        { doc:"SFRT-005150/005151", dir:"out", cat:"supplier", who:"KSA tashkiliy xarajatlari", acc:"Helaby Makka", cur:"SAR", amt:800 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"SAR sof kamayishi (hujjat aniqlanmagan)", acc:"Helaby / Madina", cur:"SAR", amt:3200 }
+      ],
+      transfers: [
+        { doc:"DDS", desc:"Valyuta ayirboshlash: 5 642 000 so'm → $470 (ichki kurs ≈12 004)", cur:"UZS", amt:5642000 }
+      ],
+      notes: [
+        { level:"warn", text:"11-iyulda Gafurov Jasur 13 843 160 so'm (SFRT-005717) va Xakimov Sanjar 10 000 000 so'm (SFRT-005725) hujjatlari DDSga tushmagan. Jami 23 843 160 so'm kirimga kiritilmadi." },
+        { level:"info", text:"2339 kartasidagi $4 808,86 kamayish to'liq aniqlandi: 10-iyul sanali SFRT-005127 $109,30, SFRT-005128 $2 732,34 va SFRT-005129 $1 967,22. Hujjatsiz USD farq qolmadi." },
+        { level:"warn", text:"SAR jami 19 345 kamaygan. Joriy ro'yxatdan 16 145 SAR hujjat topildi (9-iyul sanali 15 345 va 10-iyul sanali 800); qolgan 3 200 SAR balansdan 'Hisoblangan' deb olindi. Hisoblar kesimida Helaby −22 945 va Madina +3 600 — +3 600 SAR qayerdan kelgani ham aniqlashtirilsin." },
+        { level:"warn", text:"DDS Asosiy kassa UZS bo'yicha ish haqini 7 180 000 so'm ko'rsatadi; ko'ringan ismli hujjatlar 5 980 000 so'm. 1 200 000 so'm tafsiloti berilmagan, shuning uchun dashboardda yig'ma ko'rsatildi." },
+        { level:"info", text:"DDSda Asosiy kassa $ bo'yicha ish haqi turida $100 kirim bor. Manbasi aniqlashtirilishi kerak." },
+        { level:"info", text:"SFRT-005724 dagi 'turism' $1 200 tushumining haqiqiy to'lovchisi va $659,36 KSA tashkiliy xarajatining kontragent nomi ko'rsatilmagan; aniqlashtirish kerak." }
+      ]
+    }
+  },
+  {
+    date: "2026-07-12",
+    balances: {
+      UZS: [
+        ["Asosiy kassa UZS", 257194000],
+        ["Trastbank h/r (…893002)", 148972440.86],
+        ["Ziraat Bank h/r (…893001)", 41371491.79],
+        ["IPAK UZCARD (Xayrulloh)", 460489],
+        ["Oyliklar uchun bank", 1232000],
+        ["Kassa farq", 15000]
+      ],
+      USD: [
+        ["Asosiy kassa $", 22520],
+        ["2339 (Boronov Shoxruz) Mastercard Ipak", 553.35],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 4521.15],
+        ["0117 Xayrulloh O'tkurov VISA", 475.07],
+        ["Korrektirovka USD", 873.48],
+        ["6490 Mirusmon Shavkatov", 55]
+      ],
+      SAR: [
+        ["Helaby Makka", 105405],
+        ["Madina Abdurashid SAR", 90068.73],
+        ["Catering SAR", 15000]
+      ]
+    },
+    flows: {
+      transactions: [
+        { doc:"SFRT-005729", dir:"in", cat:"customer", who:"Zuxra Opa", acc:"Asosiy kassa $", cur:"USD", amt:2600 },
+        { doc:"SFRT-005731", dir:"in", cat:"customer", who:"Kuliyeva Nodira", acc:"Asosiy kassa $", cur:"USD", amt:400 },
+        { doc:"SFRT-005733", dir:"in", cat:"customer", who:"Durdiyeva Barno", acc:"Asosiy kassa $", cur:"USD", amt:160 },
+        { doc:"SFRT-005734", dir:"in", cat:"customer", who:"Jalilov Fikratbek", acc:"Asosiy kassa $", cur:"USD", amt:1200 },
+        { doc:"005737/005738/005739", dir:"in", cat:"customer", who:"Usmanova Zuxra", acc:"Asosiy kassa $", cur:"USD", amt:6950 },
+        { doc:"SFRT-005164", dir:"out", cat:"credit", who:"Islom aka — Isell variant 2", acc:"Asosiy kassa $", cur:"USD", amt:30000 },
+        { doc:"SFRT-005154", dir:"out", cat:"supplier", who:"Variant Zabi 15.08.26", acc:"Asosiy kassa $", cur:"USD", amt:3722 },
+        { doc:"SFRT-005162", dir:"out", cat:"supplier", who:"Haramain Train (onlayn servis)", acc:"0117 VISA", cur:"USD", amt:161.87 },
+        { doc:"SFRT-005163", dir:"out", cat:"salary", who:"Yusupov Xurshid", acc:"0117 VISA", cur:"USD", amt:200 },
+        { doc:"005152/005153", dir:"out", cat:"salary", who:"Muhlisa Matqurbonova / Abdulaziz Solijonov", acc:"Asosiy kassa UZS", cur:"UZS", amt:90000 },
+        { doc:"SFRT-005155", dir:"out", cat:"salary", who:"Xasanov Abdurahmon", acc:"IPAK UZCARD", cur:"UZS", amt:650000 },
+        { doc:"SFRT-005156", dir:"out", cat:"supplier", who:"ZAR SUV", acc:"Asosiy kassa UZS", cur:"UZS", amt:430000 },
+        { doc:"SFRT-005157", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"Asosiy kassa UZS", cur:"UZS", amt:1000000 },
+        { doc:"SFRT-005158", dir:"out", cat:"podotchet", who:"Hayrulloh O'tkurov (avans)", acc:"IPAK UZCARD", cur:"UZS", amt:2722000 },
+        { doc:"SFRT-005159", dir:"out", cat:"bank", who:"Bank komissiyasi", acc:"IPAK UZCARD", cur:"UZS", amt:23789 },
+        { doc:"SFRT-005161", dir:"out", cat:"office", who:"Hayrulloh O'tkurov — ofis xarajati", acc:"IPAK UZCARD", cur:"UZS", amt:450000 }
+      ],
+      transfers: [
+        { doc:"DDS", desc:"Valyuta ayirboshlash va kassalararo aylanish: USD hisoblari sof −$260 → UZS hisoblari sof +3 119 500 so'm (ichki kurs ≈11 998)", cur:"USD", amt:260 }
+      ],
+      notes: [
+        { level:"warn", text:"12-iyuldagi 67 537 060 so'mlik mijoz hujjatlari DDSga tushmagan va kirimga kiritilmadi: Zuxra Opa 31 831 800; Mukimov Rustam 11 921 500; Xujakulov Nurmurod 23 783 760." },
+        { level:"warn", text:"Xujakulov Nurmurodning SFRT-005735 va 005740 hujjatlari summasiz, SFRT-005736 esa 23 783 760 so'm bilan o'chirish belgisi ostida. Bekor qilingan yoki takroriy ekanini tasdiqlash kerak." },
+        { level:"warn", text:"Islom aka — Isell variant 2 ga $30 000 chiqdi. Qaysi kreditor to'loviga yozilishi aniqlanmagani uchun INSTALLMENTS paid maydoni o'zgartirilmadi." },
+        { level:"info", text:"Zabi uchun 10-iyuldagi $3 750 to'lov foydalanuvchi tomonidan to'liq tasdiqlandi. 1C hujjatida $3 722 ko'ringan $28 farq yopilgan deb qabul qilindi." },
+        { level:"info", text:"12-iyul DDS va qoldiqlar UZS, USD, SAR bo'yicha to'liq mos. Ichki konvertatsiya dashboard kursida ≈$2 baholash farqi beradi." },
+        { level:"info", text:"SFRT-005161 Hayrulloh O'tkurovga avans hujjati ko'rinishida, DDSda esa ofis xarajati sifatida turibdi. Dashboard DDS bo'yicha 'ofis' kategoriyasida qoldirildi; mohiyati tasdiqlanishi kerak." }
       ]
     }
   }
@@ -1222,7 +1372,7 @@ const DAYS = [
 ===================================================================== */
 const INSTALLMENTS = [
   { who:"Zabi", color:"#D9B23C", note:"O'tgan yili olingan", items:[
-      { due:"2026-07-10", amt:3750 },
+      { due:"2026-07-10", amt:3750, paid:3750 },
       { due:"2026-08-10", amt:3750 },
       { due:"2026-08-15", amt:250000, note:"Asosiy qarz" }
   ]},
@@ -2365,7 +2515,7 @@ function fillHomeMeta(){
   const dv = prev ? t.total - prev.total : 0;
   document.getElementById("hcCashMeta").innerHTML =
     '<div class="m1 num">' + fmtUSD(t.total) + '</div>' +
-    '<div class="m2 num ' + (dv >= 0 ? "pos" : "neg") + '">' + (prev ? signUSD(dv) + " bugun" : shortLabel(DAYS[last].date)) + '</div>';
+    '<div class="m2 num ' + (dv >= 0 ? "pos" : "neg") + '">' + (prev ? signUSD(dv) + " · " + shortLabel(DAYS[last].date) : shortLabel(DAYS[last].date)) + '</div>';
   const CT = credTotals();
   let credLine2;
   if(CT.overN) credLine2 = '<div class="m2 num neg">' + CT.overN + ' ta kechikkan · ' + fmtUSD(CT.overdue) + '</div>';
