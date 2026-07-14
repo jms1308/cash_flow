@@ -289,6 +289,12 @@
     .balflex{flex-direction:column;align-items:stretch}
     .donut{flex:none;padding-top:2px}
   }
+  .all-diff{margin:12px 18px 0;border-top:1px solid var(--track);padding-top:10px}
+  .all-diff summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:7px;padding:6px 14px;background:#fff;font-size:12px;font-weight:700;color:var(--ink)}
+  .all-diff summary::-webkit-details-marker{display:none}
+  .all-diff summary:before{content:'+';font-size:15px;line-height:10px;color:var(--muted)}
+  .all-diff[open] summary:before{content:'−'}
+  .all-diff-body{margin-top:9px;background:#faf9f4;border:1px solid var(--track);border-radius:7px;padding:8px 10px}
 
   footer{font-size:11.5px;color:var(--muted);margin-top:18px;line-height:1.6}
 
@@ -478,7 +484,7 @@
 
   <footer>
     Ziyorat jamg'armasi (depozit) va kassalar orasidagi ichki o'tkazmalar kunlik kirim-chiqimga
-    kiritilmagan. Barcha yig'indilar dollarda; so'm va riyol yuqoridagi kurs orqali dollarga o'girilgan.
+    kiritilmagan. Barcha jami summalar dollarda; so'm va riyol yuqoridagi kurs orqali dollarga o'girilgan.
   </footer>
 
 </div>
@@ -1360,6 +1366,61 @@ const DAYS = [
         { level:"info", text:"SFRT-005161 Hayrulloh O'tkurovga avans hujjati ko'rinishida, DDSda esa ofis xarajati sifatida turibdi. Dashboard DDS bo'yicha 'ofis' kategoriyasida qoldirildi; mohiyati tasdiqlanishi kerak." }
       ]
     }
+  },
+  {
+    date: "2026-07-13",
+    balances: {
+      UZS: [
+        ["Asosiy kassa UZS", 210715000],
+        ["Trastbank h/r (…893002)", 198972440.86],
+        ["Ziraat Bank h/r (…893001)", 41371491.79],
+        ["IPAK UZCARD (Xayrulloh)", 692926],
+        ["Oyliklar uchun bank", 1232000],
+        ["Kassa farq", 15000]
+      ],
+      USD: [
+        ["Asosiy kassa $", 29410],
+        ["5055 Xayrulloh O'tkurov VISA Kapital", 3864.49],
+        ["0117 Xayrulloh O'tkurov VISA", 342.33],
+        ["2339 (Boronov Shoxruz) Mastercard Ipak", 131.12],
+        ["Korrektirovka USD", 873.48],
+        ["6490 Mirusmon Shavkatov", 55]
+      ],
+      SAR: [
+        ["Catering SAR", 23605],
+        ["Helaby Makka", 105405],
+        ["Madina Abdurashid SAR", 43318.73]
+      ]
+    },
+    flows: {
+      transactions: [
+        { doc:"DDS", dir:"in", cat:"customer", who:"Mijozlardan tushum (UZS) — yig'ma", acc:"Asosiy kassa UZS", cur:"UZS", amt:20694000 },
+        { doc:"DDS", dir:"in", cat:"customer", who:"Mijozlardan tushum (USD) — yig'ma", acc:"USD kassalar", cur:"USD", amt:8782.23 },
+        { doc:"DDS", dir:"out", cat:"salary", who:"Ish haqi — yig'ma", acc:"USD / UZS kassalar", cur:"USD", amt:1756.23 },
+        { doc:"DDS", dir:"out", cat:"supplier", who:"Yetkazib beruvchilar (UZS) — yig'ma", acc:"IPAK UZCARD", cur:"UZS", amt:2369000 },
+        { doc:"DDS", dir:"out", cat:"supplier", who:"Yetkazib beruvchilar (USD) — yig'ma", acc:"5055 VISA Kapital", cur:"USD", amt:150 },
+        { doc:"DDS", dir:"out", cat:"marketing", who:"Reklama va marketing", acc:"IPAK UZCARD", cur:"UZS", amt:2700000 },
+        { doc:"DDS", dir:"out", cat:"office", who:"Ofis xarajatlari", acc:"IPAK UZCARD", cur:"UZS", amt:265000 },
+        { doc:"DDS", dir:"out", cat:"bank", who:"Bank komissiyasi (UZS) — yig'ma", acc:"IPAK UZCARD", cur:"UZS", amt:76063 },
+        { doc:"DDS", dir:"out", cat:"bank", who:"Bank komissiyasi (USD)", acc:"5055 VISA Kapital", cur:"USD", amt:6.66 },
+        { doc:"SFRT-005191", dir:"out", cat:"salary", who:"Usmon Mobiliograf", acc:"Asosiy kassa $", cur:"USD", amt:800 },
+        { doc:"SFRT-005187", dir:"out", cat:"salary", who:"Muhlisa Matqurbonova", acc:"Asosiy kassa UZS", cur:"UZS", amt:1000000 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"USD qoldiq farqi (hujjat aniqlanmagan)", acc:"USD kassalar", cur:"USD", amt:532.23 },
+        { doc:"hisoblangan", dir:"in", cat:"estimated", who:"Catering SAR qoldiq o'sishi (hujjat aniqlanmagan)", acc:"Catering SAR", cur:"SAR", amt:8605 },
+        { doc:"hisoblangan", dir:"out", cat:"estimated", who:"Madina SAR qoldiq kamayishi (hujjat aniqlanmagan)", acc:"Madina Abdurashid SAR", cur:"SAR", amt:46750 },
+        { doc:"DDS", dir:"out", cat:"salary", who:"Ish haqi (UZS) — yig'ma", acc:"Asosiy kassa UZS", cur:"UZS", amt:5845000 }
+      ],
+      transfers: [
+        { doc:"DDS", desc:"Kassalararo o'tkazmalar: Asosiy kassadan Trastbankka 50 mln va IPAKga 10,8495 mln; IPAKdan boshqa hisobga 5,207 mln. Operatsion qoldiqda sof −4,6855 mln so'm.", cur:"UZS", amt:4685500 },
+        { doc:"DDS", desc:"USD kassalararo o'tkazmalar: sof +$141,26. DDS va qoldiq orasidagi qolgan −$532,23 farq 'Hisoblangan' deb ajratildi.", cur:"USD", amt:141.26 }
+      ],
+      notes: [
+        { level:"info", text:"13-iyul UZS: DDS sof oqimi +3 753 437 so'm bo'lib, 12-iyuldan 13-iyulga qoldiq o'zgarishi bilan to'liq mos." },
+        { level:"warn", text:"13-iyul USD: DDS sof oqimi +$6 210,60, qoldiq esa +$5 678,37 o'sgan. −$532,23 farq uchun qarshi hujjat yoki o'tkazma topilmadi; 'Hisoblangan' deb belgilandi." },
+        { level:"warn", text:"13-iyul SAR bo'yicha DDSda harakat yo'q, lekin qoldiq 38 145 SAR kamaygan: Catering +8 605, Madina −46 750. Hujjat aniqlashtirilishi kerak." },
+        { level:"info", text:"12-iyul qayta tekshirildi: USD, UZS va SAR qoldiqlari DDS bilan mos. Zabi uchun $3 750 to'lov foydalanuvchi tasdig'i bilan to'liq yopilgan." }
+      ]
+    }
   }
 ];
 
@@ -1499,10 +1560,11 @@ function dayTotals(i){
 function flowsSummary(day){
   const f = day.flows;
   if(!f) return null;
+  const estimatedRows = (f.transactions || []).filter(t=>t.cat === "estimated");
   let inTotal = 0, outTotal = 0, inN = 0, outN = 0;
   let inCustomer = 0, inCredit = 0, outCredit = 0, creditTop = null;
   const inRows = [], outByCat = {};
-  f.transactions.forEach(t=>{
+  (f.transactions || []).filter(t=>t.cat !== "estimated").forEach(t=>{
     const e = ekv(t.amt, t.cur);
     if(t.dir === "in"){
       inTotal += e; inN++;
@@ -1530,7 +1592,16 @@ function flowsSummary(day){
            inCustomer:inCustomer, inCredit:inCredit,
            inOther: inTotal - inCustomer - inCredit,
            outCredit:outCredit,
+           estimatedRows: estimatedRows,
            creditWho: creditTop ? creditTop.who.replace(/\s*\(kreditor\)\s*/,"") : null };
+}
+
+function cleanDisplayText(v){
+  return String(v == null ? "" : v)
+    .replace(/\s*[—-]\s*yig['’ʻ`]?ma\b/gi, "")
+    .replace(/\byig['’ʻ`]?ma\b/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 /* "Nega" — kun yakunini bitta gapda tushuntirish */
@@ -1665,7 +1736,7 @@ function render(){
     document.getElementById("inSub").textContent = subTxt;
 
     function inRowHtml(r){
-      return '<div class="row"><div class="name">' + esc(r.who) + '</div>' +
+      return '<div class="row"><div class="name">' + esc(cleanDisplayText(r.who)) + '</div>' +
         '<div class="val num">' + fmtNative(r.amt, r.cur) +
         (r.cur !== "USD" ? ' <small>≈ ' + fmtUSD(r.ekv) + '</small>' : '') + '</div></div>';
     }
@@ -1709,7 +1780,7 @@ function render(){
       const meta = CATS[c.cat] || { label:c.cat, color:"#8A948E" };
       const share = fs.outTotal ? c.ekv/fs.outTotal*100 : 0;
       const kids = c.rows.map(r=>
-        '<div class="row"><div class="name">' + esc(r.who) + '</div>' +
+        '<div class="row"><div class="name">' + esc(cleanDisplayText(r.who)) + '</div>' +
         '<div class="val num">' + fmtNative(r.amt, r.cur) +
         (r.cur !== "USD" ? ' <small>≈ ' + fmtUSD(r.ekv) + '</small>' : '') + '</div></div>'
       ).join("");
@@ -1766,6 +1837,17 @@ function render(){
   document.getElementById("depLine").innerHTML =
     '<div>' + DEPOSITS.map(d=>esc(d.name)).join(", ") + ' · depozit (kunlik hisobga kirmaydi)</div>' +
     '<div class="num">' + depNative + ' ≈ ' + fmtUSD(depUSD) + '</div>';
+
+  const allRows = (fs && fs.estimatedRows) || [];
+  const allHtml = allRows.length ? '<details class="all-diff"><summary>All</summary><div class="all-diff-body">' +
+    allRows.map(t=>'<div class="row"><div class="name">' + esc(cleanDisplayText(t.who)) +
+      '<small> · ' + esc(t.acc || "") + '</small></div><div class="val num ' + (t.dir === "in" ? "pos" : "neg") + '">' +
+      (t.dir === "in" ? "+" : "−") + fmtNative(Math.abs(t.amt), t.cur) + '</div></div>').join("") +
+    '</div></details>' : '';
+  const balPanel = document.getElementById("balAmt").closest(".panel");
+  const oldAll = balPanel.querySelector(".all-diff");
+  if(oldAll) oldAll.remove();
+  if(allHtml) balPanel.insertAdjacentHTML("beforeend", allHtml);
 }
 
 /* --- kunlar kesimidagi kichik grafik (sof SVG, kutubxonasiz) --- */
